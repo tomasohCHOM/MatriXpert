@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  height: 70px;
+  box-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
+}
+
+.header-items {
+  margin: 0 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--dark-font-color);
+}
+
+.hamburger, .help {
+  height: 2rem;
+  cursor: pointer;
+}

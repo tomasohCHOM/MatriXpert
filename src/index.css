@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+  --primary: #d81e5b;
+  --white: #fbfbfb;
+  --background-linear-gradient: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%); 
+  --font: 'Aleo', serif;
+  --dark-font-color: rgb(77, 77, 77);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+  background: var(--background-linear-gradient);
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+}
