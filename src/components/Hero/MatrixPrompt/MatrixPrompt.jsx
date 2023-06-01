@@ -43,7 +43,7 @@ export default function MatrixPrompt() {
 				matrixSize={matrixSize}
 				setMatrix={(matrix) => setMatrix(matrix)}
 			></MatrixInput>
-      <BlockMath math={"A = " + latexMatrix} />
+			<BlockMath math={"A = " + latexMatrix} />
 		</>
 	);
 }
