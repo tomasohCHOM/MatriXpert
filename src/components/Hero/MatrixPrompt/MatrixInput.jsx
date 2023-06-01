@@ -1,5 +1,5 @@
 import React from "react";
-import "./matrixrow.css"
+import "./matrixrow.css";
 
 export default function MatrixInput({ matrixSize, setMatrix }) {
   let matrix = Array(matrixSize.rows);
@@ -30,6 +30,7 @@ export default function MatrixInput({ matrixSize, setMatrix }) {
             {row.map((item, indexColumn = 1) => {
               return (
                 <input
+                  className="num-input matrix-entry"
                   key={indexRow + " " + indexColumn}
                   type="text"
                   defaultValue={0}
@@ -40,7 +41,7 @@ export default function MatrixInput({ matrixSize, setMatrix }) {
           </div>
         );
       })}
-      <button>{"Save A"}</button>
+      <button className="input-submit">{"Save Matrix"}</button>
     </form>
   );
 }

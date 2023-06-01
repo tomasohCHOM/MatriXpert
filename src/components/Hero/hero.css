@@ -1,9 +1,14 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
 .main-wrapper {
-    margin-top: 2em;
-    background-color: var(--white);
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	margin-top: 2em;
+	background-color: var(--white);
+	width: 80vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }

@@ -1,4 +1,5 @@
 .header {
+  width: 100vw;
   display: flex;
   text-align: center;
   align-items: center;
@@ -17,7 +18,8 @@
   color: var(--dark-font-color);
 }
 
-.hamburger, .help {
+.hamburger,
+.help {
   height: 2rem;
   cursor: pointer;
 }

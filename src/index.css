@@ -18,6 +18,4 @@
 body {
   background: var(--background-linear-gradient);
   font-family: inherit;
-  display: flex;
-  justify-content: center;
 }

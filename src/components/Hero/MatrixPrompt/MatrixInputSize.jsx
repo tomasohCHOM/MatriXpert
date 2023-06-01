@@ -6,7 +6,7 @@ export default function MatrixInputSize({ setMatrixSize }) {
     <form>
       <label>Matrix Size</label>
       <input
-        className="input-size"
+        className="num-input"
         type="number"
         defaultValue={2}
         onChange={(e) => {
@@ -20,8 +20,9 @@ export default function MatrixInputSize({ setMatrixSize }) {
           }
         }}
       />
+      <span>X</span>
       <input
-        className="input-size"
+        className="num-input"
         type="number"
         defaultValue={2}
         onChange={(e) => {
