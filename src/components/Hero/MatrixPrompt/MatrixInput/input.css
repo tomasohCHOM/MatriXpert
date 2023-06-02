@@ -1,0 +1,41 @@
+.num-input {
+	margin: 1rem;
+	padding: 0.5rem;
+	width: 80px;
+	border: 2px solid rgb(147, 147, 147);
+	border-radius: 7px;
+	outline-color: rgb(57, 57, 57);
+}
+
+.matrix-entry {
+	margin: 0.25rem;
+}
+
+.flex-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.input-submit {
+	margin: 1rem;
+	padding: 0.5rem;
+	border: none;
+	border-radius: 0.5rem;
+	background-color: var(--primary);
+	color: white;
+	font-size: 1.25rem;
+	font-weight: normal;
+	cursor: pointer;
+	outline: none;
+	transition: transform 0.25s ease-in, box-shadow 0.25s ease-in;
+}
+
+.input-submit:hover {
+	transform: scale(1.05);
+	box-shadow: 3px 3px 7px rgba(17, 23, 21, 0.05);
+}
+
+.input-submit:active {
+	opacity: 0.7;
+}
