@@ -28,7 +28,7 @@
 	font-weight: normal;
 	cursor: pointer;
 	outline: none;
-	transition: transform 0.25s ease-in, box-shadow 0.25s ease-in;
+	transition: transform 0.25s ease-in, box-shadow 0.25s ease-in, opacity 0.15s;
 }
 
 .input-submit:hover {

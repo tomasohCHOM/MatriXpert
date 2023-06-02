@@ -5,11 +5,12 @@
   --white: #fbfbfb;
   --background-linear-gradient: linear-gradient(
     to right,
-    #ffecd2 0%,
-    #fcb69f 100%
+    #fff5e8 0%,
+    #d6e8e1 100%
   );
   --font: "Aleo", serif;
   --dark-font-color: rgb(77, 77, 77);
+  --standard-box-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
 }
 
 *,

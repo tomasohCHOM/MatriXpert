@@ -2,13 +2,14 @@ import React from "react"
 import "./header.css"
 import help from "../../assets/help.png"
 import hamburger from "../../assets/hamburger-menu-icon.png"
+import githubLogo from "../../assets/github-logo.png";
 
 export default function Header() {
   return (
     <header className="header">
-      <img src={hamburger} alt="hamburger" className="header-items hamburger" />
-      <h1 className="header-items title">MatriXpert</h1>
-      <img src={help} alt="help" className="header-items help" />
+      <img src={githubLogo} alt="hamburger" className="header-images" />
+      <h1 className="title">MatriXpert</h1>
+      <img src={help} alt="help" className="header-images" />
     </header>
   )
 }

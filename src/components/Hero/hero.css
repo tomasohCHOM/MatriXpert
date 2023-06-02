@@ -1,14 +1,21 @@
 .main {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 2em;
 }
 
 .main-wrapper {
-  margin-top: 2em;
+  flex-basis: 75%;
+  padding: 1.25rem;
   background-color: var(--white);
-  width: 80vw;
+  box-shadow: var(--standard-box-shadow);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.operation-header {
+  font-size: 1.75rem;
+  color: var(--dark-font-color);
 }
