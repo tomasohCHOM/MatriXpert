@@ -1,16 +1,6 @@
 import React, { useState } from "react";
+import { OPERATION_LIST } from "../Hero/Hero";
 import "./navbar.css";
-
-export const OPERATION_LIST = [
-  { id: "add", title: "Addition" },
-  { id: "subtract", title: "Subtraction" },
-  { id: "multiplication", title: "Multiplication" },
-  { id: "k-multiplication", title: "K-Multiplication" },
-  { id: "transpose", title: "Transpose" },
-  { id: "determinant", title: "Determinant" },
-  { id: "cramers", title: "Cramer's Rule" },
-  { id: "ref-rref", title: "REF/RREF" },
-];
 
 export default function Navbar() {
   const [selected, setSelected] = useState(OPERATION_LIST[4].id);
