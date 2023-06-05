@@ -34,7 +34,7 @@ export default function Hero() {
 				/>
 
 				<main className="main-wrapper">
-					<h2 className="operation-header">Matrix {operation.title}</h2>
+					<h2 className="operation-header">Matrix {operation.title}:</h2>
 
 					<MatrixPrompt
 						matrixSize={matrixSize}

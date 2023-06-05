@@ -7,6 +7,13 @@
   outline-color: rgb(57, 57, 57);
 }
 
+.size-input-wrapper {
+  display: flex;
+  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .matrix-entry {
   margin: 0.25rem;
 }
@@ -18,7 +25,6 @@
 }
 
 .input-submit {
-  margin: 1rem;
   padding: 0.5rem;
   border: none;
   border-radius: 0.5rem;
