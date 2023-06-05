@@ -13,7 +13,7 @@ export const OP_LIST = [
 ];
 
 export default function Navbar() {
-	const [selected, setSelected] = useState("");
+	const [selected, setSelected] = useState(OP_LIST[4].id);
 
 	const handleOperationSelected = (operation) => {
 		setSelected(operation.id);
