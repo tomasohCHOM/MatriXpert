@@ -2,24 +2,22 @@ import React, { useState } from "react";
 import { OPERATION_LIST } from "../Hero/Hero";
 import "./navbar.css";
 
-export default function Navbar() {
-  const [selected, setSelected] = useState(OPERATION_LIST[4].id);
-
-  const handleOperationSelected = (operation) => {
-    setSelected(operation.id);
+export default function Navbar({ operation, setOperation }) {
+  const handleOperationSelected = (selectedOperation) => {
+    setOperation(selectedOperation);
   };
 
   return (
     <nav className="navbar">
       <ul>
-        {OPERATION_LIST.map((operation) => {
+        {OPERATION_LIST.map((selectedOperation) => {
           return (
             <li
-              onClick={() => handleOperationSelected(operation)}
-              key={operation.id}
-              className={operation.id === selected ? "selected" : ""}
+              onClick={() => handleOperationSelected(selectedOperation)}
+              key={selectedOperation.id}
+              className={selectedOperation.id === operation.id ? "selected" : ""}
             >
-              {operation.title}
+              {selectedOperation.title}
             </li>
           );
         })}
