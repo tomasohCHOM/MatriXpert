@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./navbar.css";
 
-export const OP_LIST = [
+export const OPERATION_LIST = [
 	{ id: "add", title: "Addition" },
 	{ id: "subtract", title: "Subtraction" },
 	{ id: "multiplication", title: "Multiplication" },
@@ -13,7 +13,7 @@ export const OP_LIST = [
 ];
 
 export default function Navbar() {
-	const [selected, setSelected] = useState(OP_LIST[4].id);
+	const [selected, setSelected] = useState(OPERATION_LIST[4].id);
 
 	const handleOperationSelected = (operation) => {
 		setSelected(operation.id);
@@ -22,7 +22,7 @@ export default function Navbar() {
 	return (
 		<nav className="navbar">
 			<ul>
-				{OP_LIST.map((operation) => {
+				{OPERATION_LIST.map((operation) => {
 					return (
 						<li
 							onClick={() => handleOperationSelected(operation)}
