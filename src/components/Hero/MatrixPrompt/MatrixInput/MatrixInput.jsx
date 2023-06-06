@@ -23,10 +23,10 @@ export default function MatrixInput({ matrixSize, setMatrix }) {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className="form-input" onSubmit={handleSubmit}>
 			{matrix.map((row, indexRow = 1) => {
 				return (
-					<div className="flex-container" key={indexRow}>
+					<div key={indexRow}>
 						{row.map((item, indexColumn = 1) => {
 							return (
 								<input

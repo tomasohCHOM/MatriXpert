@@ -25,4 +25,5 @@
 body {
   background: var(--background-linear-gradient);
   font-family: inherit;
+  overflow-x: hidden;
 }

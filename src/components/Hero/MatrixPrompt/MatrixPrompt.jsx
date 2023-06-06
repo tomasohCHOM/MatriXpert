@@ -9,7 +9,7 @@ export default function MatrixPrompt({
 }) {
 	return (
 		<>
-			<div className="size-input-wrapper">
+			<div className="main-input-wrapper">
 				<div className="wrapper-column">
 					<MatrixInputSize
 						setMatrixSize={(object) => setMatrixSize(object)}
@@ -19,15 +19,6 @@ export default function MatrixPrompt({
 						setMatrix={(matrix) => setMatrix(matrix)}
 					></MatrixInput>
 				</div>
-        {/* <div className="wrapper-column">
-					<MatrixInputSize
-						setMatrixSize={(object) => setMatrixSize(object)}
-					></MatrixInputSize>
-					<MatrixInput
-						matrixSize={matrixSize}
-						setMatrix={(matrix) => setMatrix(matrix)}
-					></MatrixInput>
-				</div> */}
 			</div>
 		</>
 	);
