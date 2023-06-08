@@ -6,14 +6,54 @@ import MatrixResult from "./MatrixResult/MatrixResult";
 import Navbar from "../Navbar/Navbar";
 
 export const OPERATION_LIST = [
-	{ id: "add", title: "Addition" },
-	{ id: "subtract", title: "Subtraction" },
-	{ id: "multiplication", title: "Multiplication" },
-	{ id: "k-multiplication", title: "K-Multiplication" },
-	{ id: "transpose", title: "Transpose" },
-	{ id: "determinant", title: "Determinant" },
-	{ id: "cramers", title: "Cramer's Rule" },
-	{ id: "ref-rref", title: "REF/RREF" },
+	{
+		id: "add",
+		title: "Addition",
+		requiresTwoMatrices: true,
+		requiresConstant: false,
+	},
+	{
+		id: "subtract",
+		title: "Subtraction",
+		requiresTwoMatrices: true,
+		requiresConstant: false,
+	},
+	{
+		id: "multiplication",
+		title: "Multiplication",
+		requiresTwoMatrices: true,
+		requiresConstant: false,
+	},
+	{
+		id: "k-multiplication",
+		title: "K-Multiplication",
+		requiresTwoMatrices: false,
+		requiresConstant: true,
+	},
+	{
+		id: "transpose",
+		title: "Transpose",
+		requiresTwoMatrices: false,
+		requiresConstant: false,
+	},
+	{
+		id: "determinant",
+		title: "Determinant",
+		requiresTwoMatrices: false,
+		requiresConstant: false,
+	},
+	{
+		id: "cramers",
+		title: "Cramer's Rule",
+		requiresTwoMatrices: false,
+		requiresConstant: false,
+	},
+	{
+		id: "ref-rref",
+		title: "REF/RREF",
+		requiresTwoMatrices: false,
+		requiresConstant: false,
+	},
 ];
 
 export default function Hero() {
@@ -23,10 +63,10 @@ export default function Hero() {
 		[0, 0],
 		[0, 0],
 	]);
-  const [secondMatrix, setSecondMatrix] = useState([
-    [0, 0],
-    [0, 0]
-  ])
+	const [secondMatrix, setSecondMatrix] = useState([
+		[0, 0],
+		[0, 0],
+	]);
 	const [result, setResult] = useState("");
 
 	return (
@@ -45,13 +85,9 @@ export default function Hero() {
 						setMatrixSize={(object) => setMatrixSize(object)}
 						matrix={matrix}
 						setMatrix={(object) => setMatrix(object)}
-					></MatrixPrompt>
-
-					<MatrixPrompt
-						matrixSize={matrixSize}
-						setMatrixSize={(object) => setMatrixSize(object)}
-						matrix={secondMatrix}
-						setMatrix={(object) => setSecondMatrix(object)}
+						secondMatrix={secondMatrix}
+						setSecondMatrix={(object) => setSecondMatrix(object)}
+						operation={operation}
 					></MatrixPrompt>
 
 					<MatrixResult
