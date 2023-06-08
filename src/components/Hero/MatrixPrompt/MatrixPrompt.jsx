@@ -18,11 +18,7 @@ export default function MatrixPrompt({
           <div className="wrapper-column">
             <form>
               <label>Constant K:</label>
-              <input
-                className="num-input"
-                type="number"
-                defaultValue={0}
-              />
+              <input className="num-input" type="number" defaultValue={0} />
             </form>
           </div>
         )}
