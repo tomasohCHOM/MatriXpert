@@ -17,7 +17,7 @@ export default function MatrixInput({ matrixSize, setMatrix }) {
           ? parseFloat(event.target[count].value)
           : 0;
         count += 1;
-      }
+      } 
     }
     setMatrix(matrix);
   };
