@@ -10,4 +10,4 @@ export const generateRandomMatrix = (numRows, numCols) => {
     }
   }
   return result;
-}
+};
