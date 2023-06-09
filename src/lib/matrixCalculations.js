@@ -117,32 +117,8 @@ export default class MatrixCalculations {
     }
     return result;
   };
-  
+
   static rref = (a) => {
-    /*
-    if (a.length === 0) return a;
-  
-    Matrix result = a;
-    const let rows = result.length;
-    const let cols = result[0].length;
-    let lead = 0;
-    while (lead < rows) {
-        double divisor, multiplier;
-        for (let r = 0; r < rows; ++r) {
-            divisor = result[lead][lead];
-            multiplier = result[r][lead] / divisor;
-            for (let c = 0; c < cols; ++c) {
-                if (r == lead)
-                    result[r][c] /= divisor;
-                else
-                    result[r][c] -= result[lead][c] * multiplier;
-            } 
-        }
-        ++lead;
-        printMatrix(result);
-    }
-    return result;
-    */
     let result = [...a];
     let lead = 0; // The current leading column
     let rowCount = result.length; // The number of rows in the matrix
