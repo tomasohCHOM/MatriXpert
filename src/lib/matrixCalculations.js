@@ -45,7 +45,7 @@ export default class MatrixCalculations {
     // If the input Matrix is empty, we don't need to do anything, just return a default-constructed Matrix.
     if (a.length === 0) return;
     // Initialize the resultant Matrix's rows to the number of columns of the input Matrix.
-    let result = a;
+    let result = new Array(a[0].length).fill(0).map(() => new Array());
 
     for (let r = 0; r < a.length; ++r) {
       for (let c = 0; c < a[0].length; ++c) {
@@ -117,21 +117,7 @@ export default class MatrixCalculations {
     }
     return result;
   };
-
-  static printMatrix = (sampleMatrix) => {
-    let printed = "";
-    for (let r = 0; r < sampleMatrix.length; ++r) {
-      printed += "[ ";
-      for (let c = 0; c < sampleMatrix[0].length; ++c) {
-        if (c != sampleMatrix[0].length - 1)
-          printed += sampleMatrix[r][c].toFixed(4);
-        else printed += sampleMatrix[r][c].toFixed(4);
-      }
-      printed += "]";
-    }
-    console.log(printed);
-  };
-
+  
   static rref = (a) => {
     /*
     if (a.length === 0) return a;
@@ -169,7 +155,7 @@ export default class MatrixCalculations {
       }
       let i = r;
       // Search for a row with a non-zero entry in the current leading column
-      while (abs(result[i][lead]) < 1e-10) {
+      while (Math.abs(result[i][lead]) < 1e-10) {
         i++;
         if (rowCount == i) {
           // If we've processed all rows, move to the next column
