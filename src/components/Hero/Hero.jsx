@@ -59,6 +59,7 @@ export const OPERATION_LIST = [
 export default function Hero() {
   const [operation, setOperation] = useState(OPERATION_LIST[4]);
   const [matrixSize, setMatrixSize] = useState({ rows: 2, columns: 2 });
+  const [secondMatrixSize, setSecondMatrixSize] = useState({ rows: 2, columns: 2 });
   const [matrix, setMatrix] = useState([
     [0, 0],
     [0, 0],
@@ -78,11 +79,13 @@ export default function Hero() {
         />
 
         <main className="main-wrapper">
-          <h2 className="operation-header">Matrix {operation.title}:</h2>
+          <h2 className="sub-header">Matrix {operation.title}:</h2>
 
           <MatrixPrompt
             matrixSize={matrixSize}
             setMatrixSize={(object) => setMatrixSize(object)}
+            secondMatrixSize={secondMatrixSize}
+            setSecondMatrixSize={(object) => setSecondMatrixSize(object)}
             matrix={matrix}
             setMatrix={(object) => setMatrix(object)}
             secondMatrix={secondMatrix}
@@ -92,6 +95,8 @@ export default function Hero() {
 
           <MatrixResult
             matrix={matrix}
+            secondMatrix={secondMatrix}
+            operation={operation}
             result={result}
             setResult={(object) => setResult(object)}
           ></MatrixResult>

@@ -23,7 +23,7 @@ export default function MatrixInput({ matrixSize, setMatrix }) {
   };
 
   return (
-    <form className="form-input" onSubmit={handleSubmit}>
+    <form id="input-form" className="form-input" onSubmit={handleSubmit}>
       {matrix.map((row, indexRow = 1) => {
         return (
           <div key={indexRow}>
@@ -41,7 +41,6 @@ export default function MatrixInput({ matrixSize, setMatrix }) {
           </div>
         );
       })}
-      <button className="input-submit">Calculate!</button>
     </form>
   );
 }

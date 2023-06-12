@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.operation-header {
+.sub-header {
   font-size: 1.75rem;
   color: var(--dark-font-color);
 }

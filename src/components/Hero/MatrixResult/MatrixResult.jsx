@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "katex/dist/katex.min.css";
 import { BlockMath } from "react-katex";
+import "../hero.css";
 
 const renderLatexMatrix = (matrix) => {
   return (
@@ -15,7 +16,7 @@ const renderLatexMatrix = (matrix) => {
   );
 };
 
-export default function MatrixResult({ matrix }) {
+export default function MatrixResult({ matrix, secondMatrix, operation }) {
   const [latexMatrix, setLatexMatrix] = useState(
     "\\begin{pmatrix}\n 0 & 0\\\\\n 0 & 0\n \\end{pmatrix}"
   );
@@ -25,7 +26,8 @@ export default function MatrixResult({ matrix }) {
   }, [matrix]);
   return (
     <>
-      <BlockMath math={"A = " + latexMatrix} />
+      <h2 className="sub-header">Result:</h2>
+      <BlockMath math={latexMatrix} />
     </>
   );
 }
