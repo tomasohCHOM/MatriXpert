@@ -67,13 +67,14 @@ export default class MatrixCalculations {
     for (let r = 0; r < dimensionSize; ++r) {
       for (let c = 0; c < dimensionSize; ++c) {
         // If it happens to be the same row, break. If same column, continue to the next iteration.
-        if (i == r) break;
-        if (j == c) continue;
+        if (i === r) break;
+        if (j === c) continue;
         // Otherwise, push the value to the subMatrix.
         resultantMatrix[m].push(a[r][c]);
       }
-      // If added values to the subMatrix successfully, move to the next subMatrix row.
-      if (!resultantMatrix[m].length === 0) ++m;
+      // If added values to the subMatrix successfully, move to the next subMatrix row. Don't move to next row
+      // if we are already at the last one.
+      if (i !== r && resultantMatrix[m].length !== 0) m++;
     }
     return resultantMatrix;
   };
@@ -105,7 +106,7 @@ export default class MatrixCalculations {
   };
 
   static cramersRule = (a, b) => {
-    let result = new Array(3).fill();
+    let result = new Array(3).fill(0);
     let mainDeterminant = determinant(a);
 
     for (let c = 0; c < a.length; ++c) {
@@ -119,7 +120,9 @@ export default class MatrixCalculations {
   };
 
   static rref = (a) => {
-    let result = [...a];
+    let result = a.map((arr) => {
+      return arr.slice();
+    });
     let lead = 0; // The current leading column
     let rowCount = result.length; // The number of rows in the matrix
     let colCount = result[0].length; // The number of columns in the matrix
