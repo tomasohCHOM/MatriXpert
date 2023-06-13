@@ -59,10 +59,8 @@ export const OPERATION_LIST = [
 export default function Hero() {
   const [operation, setOperation] = useState(OPERATION_LIST[4]);
   const [matrixSize, setMatrixSize] = useState({ rows: 2, columns: 2 });
-  const [secondMatrixSize, setSecondMatrixSize] = useState({
-    rows: 2,
-    columns: 2,
-  });
+  const [secondMatrixSize, setSecondMatrixSize] = useState({ rows: 2, columns: 2 });
+  const [constant, setConstant] = useState(0);
   const [matrix, setMatrix] = useState([
     [0, 0],
     [0, 0],
@@ -96,6 +94,8 @@ export default function Hero() {
             setMatrix={(object) => setMatrix(object)}
             secondMatrix={secondMatrix}
             setSecondMatrix={(object) => setSecondMatrix(object)}
+            constant={constant}
+            setConstant={(object) => setConstant(object)}
             operation={operation}
           ></MatrixPrompt>
 

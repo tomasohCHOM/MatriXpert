@@ -12,10 +12,17 @@ export default function MatrixPrompt({
   setMatrix,
   secondMatrix,
   setSecondMatrix,
+  constant,
+  setConstant,
   operation,
 }) {
+  const handleChange = e => {
+    setConstant(e.target.value);
+  }
+
   console.log(matrix);
   console.log(secondMatrix);
+  console.log(constant);
   return (
     <>
       <div className="main-input-wrapper">
@@ -23,7 +30,7 @@ export default function MatrixPrompt({
           <div className="wrapper-column">
             <form>
               <label>Constant K:</label>
-              <input className="num-input" type="number" defaultValue={0} />
+              <input className="num-input" type="number" defaultValue={0} onChange={handleChange} />
             </form>
           </div>
         )}
