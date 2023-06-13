@@ -2,9 +2,9 @@ import React from "react";
 import "./input.css";
 
 export default function MatrixInput({ matrixSize, setMatrix }) {
-  let matrix = Array(matrixSize.rows);
+  let currentMatrix = Array(matrixSize.rows);
   for (let r = 0; r < matrixSize.rows; r++) {
-    matrix[r] = new Array(matrixSize.columns).fill(0);
+    currentMatrix[r] = new Array(matrixSize.columns).fill(0);
   }
 
   const handleSubmit = (event) => {
@@ -13,18 +13,18 @@ export default function MatrixInput({ matrixSize, setMatrix }) {
     for (let r = 0; r < matrixSize.rows; r++) {
       for (let c = 0; c < matrixSize.columns; c++) {
         // If the floating point number cannot be parsed, we set 0 for this value
-        matrix[r][c] = !isNaN(parseFloat(event.target[count].value))
+        currentMatrix[r][c] = !isNaN(parseFloat(event.target[count].value))
           ? parseFloat(event.target[count].value)
           : 0;
         count += 1;
       }
     }
-    setMatrix(matrix);
+    setMatrix(currentMatrix);
   };
 
   return (
     <form id="input-form" className="form-input" onSubmit={handleSubmit}>
-      {matrix.map((row, indexRow = 1) => {
+      {currentMatrix.map((row, indexRow = 1) => {
         return (
           <div key={indexRow}>
             {row.map((item, indexColumn = 1) => {

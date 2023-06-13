@@ -14,7 +14,8 @@ export default function MatrixPrompt({
   setSecondMatrix,
   operation,
 }) {
-
+  console.log(matrix);
+  console.log(secondMatrix);
   return (
     <>
       <div className="main-input-wrapper">

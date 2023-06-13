@@ -5,7 +5,6 @@ import Hero from "./Hero/Hero.jsx";
 import tester from "../lib/tester";
 
 export default function MatriXpert() {
-  tester();
   return (
     <>
       <Header></Header>
