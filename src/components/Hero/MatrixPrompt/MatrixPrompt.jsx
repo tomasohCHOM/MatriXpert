@@ -1,7 +1,8 @@
+import React, { useState } from "react";
 import MatrixInputSize from "./MatrixInput/MatrixInputSize";
 import MatrixInput from "./MatrixInput/MatrixInput";
 import { OPERATION_LIST } from "../Hero";
-import MatrixCalculations from "../../../lib/matrixCalculations";
+import MatrixCalculations from "../../../utils/matrixCalculations";
 
 export default function MatrixPrompt({
   matrixSize,
@@ -16,6 +17,13 @@ export default function MatrixPrompt({
   setConstant,
   operation,
 }) {
+  const providedInputs = {
+    matrix: matrix,
+    secondMatrix: secondMatrix,
+    constant: constant
+  }
+  const [inputs, setInputs] = useState(providedInputs);
+
   const handleChange = e => {
     setConstant(e.target.value);
   }
@@ -41,6 +49,7 @@ export default function MatrixPrompt({
           <MatrixInput
             matrixSize={matrixSize}
             setMatrix={(matrix) => setMatrix(matrix)}
+            formId="first-matrix-input-form"
           ></MatrixInput>
         </div>
         {operation.requiresTwoMatrices && (
@@ -51,11 +60,12 @@ export default function MatrixPrompt({
             <MatrixInput
               matrixSize={secondMatrixSize}
               setMatrix={(matrix) => setSecondMatrix(matrix)}
+              formId="second-matrix-input-form"
             ></MatrixInput>
           </div>
         )}
       </div>
-      <button form="input-form" className="input-submit">Calculate!</button>
+      <button form="second-matrix-input-form" className="input-submit">Calculate!</button>
     </>
   );
 }

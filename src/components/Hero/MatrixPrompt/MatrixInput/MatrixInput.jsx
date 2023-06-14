@@ -1,7 +1,7 @@
 import React from "react";
 import "./input.css";
 
-export default function MatrixInput({ matrixSize, setMatrix }) {
+export default function MatrixInput({ matrixSize, setMatrix, formId }) {
   let currentMatrix = Array(matrixSize.rows);
   for (let r = 0; r < matrixSize.rows; r++) {
     currentMatrix[r] = new Array(matrixSize.columns).fill(0);
@@ -23,7 +23,7 @@ export default function MatrixInput({ matrixSize, setMatrix }) {
   };
 
   return (
-    <form id="input-form" className="form-input" onSubmit={handleSubmit}>
+    <form id={formId} className="form-input" onSubmit={handleSubmit}>
       {currentMatrix.map((row, indexRow = 1) => {
         return (
           <div key={indexRow}>
