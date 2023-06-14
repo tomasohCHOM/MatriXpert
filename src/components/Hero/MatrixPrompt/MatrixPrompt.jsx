@@ -17,20 +17,17 @@ export default function MatrixPrompt({
   setConstant,
   operation,
 }) {
-  const providedInputs = {
-    matrix: matrix,
-    secondMatrix: secondMatrix,
-    constant: constant
-  }
-  const [inputs, setInputs] = useState(providedInputs);
-
   const handleChange = e => {
     setConstant(e.target.value);
   }
 
-  console.log(matrix);
-  console.log(secondMatrix);
-  console.log(constant);
+  const handleSubmit = () => {
+    console.log(matrix);
+    console.log(secondMatrix);
+    // console.log(constant);
+    // console.log(operation);
+  }
+
   return (
     <>
       <div className="main-input-wrapper">
@@ -45,27 +42,27 @@ export default function MatrixPrompt({
         <div className="wrapper-column">
           <MatrixInputSize
             setMatrixSize={(object) => setMatrixSize(object)}
+            setMatrix={(matrix) => setMatrix(matrix)}
           ></MatrixInputSize>
           <MatrixInput
             matrixSize={matrixSize}
             setMatrix={(matrix) => setMatrix(matrix)}
-            formId="first-matrix-input-form"
           ></MatrixInput>
         </div>
         {operation.requiresTwoMatrices && (
           <div className="wrapper-column">
             <MatrixInputSize
               setMatrixSize={(object) => setSecondMatrixSize(object)}
+              setMatrix={(matrix) => setSecondMatrix(matrix)}
             ></MatrixInputSize>
             <MatrixInput
               matrixSize={secondMatrixSize}
               setMatrix={(matrix) => setSecondMatrix(matrix)}
-              formId="second-matrix-input-form"
             ></MatrixInput>
           </div>
         )}
       </div>
-      <button form="second-matrix-input-form" className="input-submit">Calculate!</button>
+      <button className="input-submit" onClick={handleSubmit}>Calculate!</button>
     </>
   );
 }

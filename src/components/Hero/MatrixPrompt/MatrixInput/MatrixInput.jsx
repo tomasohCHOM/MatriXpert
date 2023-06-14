@@ -1,13 +1,13 @@
 import React from "react";
 import "./input.css";
 
-export default function MatrixInput({ matrixSize, setMatrix, formId }) {
+export default function MatrixInput({ matrixSize, setMatrix }) {
   let currentMatrix = Array(matrixSize.rows);
   for (let r = 0; r < matrixSize.rows; r++) {
     currentMatrix[r] = new Array(matrixSize.columns).fill(0);
   }
 
-  const handleSubmit = (event) => {
+  const handleChange = (event) => {
     event.preventDefault();
     let count = 0;
     for (let r = 0; r < matrixSize.rows; r++) {
@@ -19,11 +19,13 @@ export default function MatrixInput({ matrixSize, setMatrix, formId }) {
         count += 1;
       }
     }
+    console.log("Current matrix");
+    console.log(currentMatrix);
     setMatrix(currentMatrix);
   };
 
   return (
-    <form id={formId} className="form-input" onSubmit={handleSubmit}>
+    <form className="form-input">
       {currentMatrix.map((row, indexRow = 1) => {
         return (
           <div key={indexRow}>
@@ -35,6 +37,7 @@ export default function MatrixInput({ matrixSize, setMatrix, formId }) {
                   type="text"
                   defaultValue={0}
                   name={indexRow + "," + indexColumn}
+                  onChange={handleChange}
                 />
               );
             })}
