@@ -53,7 +53,7 @@ export default class MatrixCalculations {
       }
     }
     return result;
-  }
+  };
 
   static transpose = (a) => {
     // If the input Matrix is empty, we don't need to do anything, just return a default-constructed Matrix.
@@ -188,55 +188,55 @@ export const OPERATION_LIST = [
     title: "Addition",
     requiresTwoMatrices: true,
     requiresConstant: false,
-    computeCalculation: MatrixCalculations.addMatrices
+    computeCalculation: MatrixCalculations.addMatrices,
   },
   {
     id: "subtract",
     title: "Subtraction",
     requiresTwoMatrices: true,
     requiresConstant: false,
-    computeCalculation: MatrixCalculations.subtractMatrices
+    computeCalculation: MatrixCalculations.subtractMatrices,
   },
   {
     id: "multiplication",
     title: "Multiplication",
     requiresTwoMatrices: true,
     requiresConstant: false,
-    computeCalculation: MatrixCalculations.multiplyMatrices
+    computeCalculation: MatrixCalculations.multiplyMatrices,
   },
   {
     id: "k-multiplication",
     title: "K-Multiplication",
     requiresTwoMatrices: false,
     requiresConstant: true,
-    computeCalculation: MatrixCalculations.kMultiplication
+    computeCalculation: MatrixCalculations.kMultiplication,
   },
   {
     id: "transpose",
     title: "Transpose",
     requiresTwoMatrices: false,
     requiresConstant: false,
-    computeCalculation: MatrixCalculations.transpose
+    computeCalculation: MatrixCalculations.transpose,
   },
   {
     id: "determinant",
     title: "Determinant",
     requiresTwoMatrices: false,
     requiresConstant: false,
-    computeCalculation: MatrixCalculations.determinant
+    computeCalculation: MatrixCalculations.determinant,
   },
   {
     id: "cramers",
     title: "Cramer's Rule",
     requiresTwoMatrices: false,
     requiresConstant: false,
-    computeCalculation: MatrixCalculations.cramersRule
+    computeCalculation: MatrixCalculations.cramersRule,
   },
   {
     id: "ref-rref",
     title: "REF/RREF",
     requiresTwoMatrices: false,
     requiresConstant: false,
-    computeCalculation: MatrixCalculations.rref
+    computeCalculation: MatrixCalculations.rref,
   },
 ];

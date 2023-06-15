@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import MatrixInputSize from "./MatrixInput/MatrixInputSize";
 import MatrixInput from "./MatrixInput/MatrixInput";
-import MatrixCalculations, { OPERATION_LIST } from "../../../utils/matrixCalculations";
 
 export default function MatrixPrompt({
   matrixSize,
@@ -17,17 +16,21 @@ export default function MatrixPrompt({
   operation,
   setResult
 }) {
-  const handleChange = e => {
+  const handleConstantChange = e => {
     setConstant(e.target.value);
   }
 
   const handleSubmit = () => {
-    console.log(matrix);
-    console.log(secondMatrix);
+    // console.log(matrix);
+    // console.log(secondMatrix);
     // console.log(constant);
     // console.log(operation);
     if (operation.requiresTwoMatrices) {
-      setResult(MatrixCalculations.addMatrices(matrix, secondMatrix));
+      setResult(operation.computeCalculation(matrix, secondMatrix));
+    } else if (operation.requiresConstant) {
+      setResult(operation.computeCalculation(matrix, constant));
+    } else {
+      setResult(operation.computeCalculation(matrix));
     }
   }
 
@@ -38,7 +41,7 @@ export default function MatrixPrompt({
           <div className="wrapper-column">
             <form>
               <label>Constant K:</label>
-              <input className="num-input" type="number" defaultValue={0} onChange={handleChange} />
+              <input className="num-input" type="number" defaultValue={0} onChange={handleConstantChange} />
             </form>
           </div>
         )}

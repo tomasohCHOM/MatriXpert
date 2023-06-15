@@ -1,20 +1,26 @@
 import React, { useEffect } from "react";
 import "./input.css";
 
+const getEntriesFromMatrix = (rows, columns, matrix) => {
+  let result = [];
+  // Copy from the previous matrix state except when some rows or entries are undefined.
+  for (let r = 0; r < rows; r++) {
+    result[r] = [];
+    for (let c = 0; c < columns; c++) {
+      result[r][c] = matrix[r] !== undefined ? matrix[r][c] ?? 0 : 0;
+    }
+  }
+  return result;
+};
+
 export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
   // Create new array that can be mutable whenever the matrix dimensions change.
   let currentMatrix = Array(matrixSize.rows);
-  // Copy from the previous matrix state except when some rows or entries are undefined.
-  for (let r = 0; r < matrixSize.rows; r++) {
-    currentMatrix[r] = [];
-    for (let c = 0; c < matrixSize.columns; c++) {
-      if (matrix[r] !== undefined) {
-        currentMatrix[r][c] = matrix[r][c] ?? 0;
-      } else {
-        currentMatrix[r][c] = 0;
-      }
-    }
-  }
+  currentMatrix = getEntriesFromMatrix(
+    matrixSize.rows,
+    matrixSize.columns,
+    matrix
+  );
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -43,16 +49,11 @@ export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
   // Call useEffect hook whenever matrixSize changes, updating the matrix state with its new dimensions before even making
   // changes to it.
   useEffect(() => {
-    for (let r = 0; r < matrixSize.rows; r++) {
-      currentMatrix[r] = [];
-      for (let c = 0; c < matrixSize.columns; c++) {
-        if (matrix[r] !== undefined) {
-          currentMatrix[r][c] = matrix[r][c] ?? 0;
-        } else {
-          currentMatrix[r][c] = 0;
-        }
-      }
-    }
+    currentMatrix = getEntriesFromMatrix(
+      matrixSize.rows,
+      matrixSize.columns,
+      matrix
+    );
     console.log("Current matrix");
     console.log(currentMatrix);
     setMatrix(currentMatrix);
