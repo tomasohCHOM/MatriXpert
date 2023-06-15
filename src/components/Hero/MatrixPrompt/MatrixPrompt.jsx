@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import MatrixInputSize from "./MatrixInput/MatrixInputSize";
 import MatrixInput from "./MatrixInput/MatrixInput";
-import { OPERATION_LIST } from "../Hero";
-import MatrixCalculations from "../../../utils/matrixCalculations";
+import MatrixCalculations, { OPERATION_LIST } from "../../../utils/matrixCalculations";
 
 export default function MatrixPrompt({
   matrixSize,

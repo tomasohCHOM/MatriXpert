@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import "./input.css";
 
 export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
+  // Create new array that can be mutable whenever the matrix dimensions change.
   let currentMatrix = Array(matrixSize.rows);
-  console.log(matrix);
+  // Copy from the previous matrix state except when some rows or entries are undefined.
   for (let r = 0; r < matrixSize.rows; r++) {
     currentMatrix[r] = [];
     for (let c = 0; c < matrixSize.columns; c++) {
@@ -39,17 +40,23 @@ export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
     setMatrix(currentMatrix);
   };
 
-  // useEffect(() => {
-  //   let count = 0;
-  //   for (let i = 0; i < matrixSize.rows; i++) {
-  //     for (let j = 0; j < matrixSize.columns; j++) {
-  //       // If the floating point number cannot be parsed, we set 0 for this value
-  //       currentMatrix[i][j] = !isNaN(parseFloat(event.target[count].value)) ? parseFloat(event.target[count].value) : 0;
-  //       count += 1;
-  //     }
-  //   }
-  //   setMatrix(currentMatrix);
-  // }, [matrixSize]);
+  // Call useEffect hook whenever matrixSize changes, updating the matrix state with its new dimensions before even making
+  // changes to it.
+  useEffect(() => {
+    for (let r = 0; r < matrixSize.rows; r++) {
+      currentMatrix[r] = [];
+      for (let c = 0; c < matrixSize.columns; c++) {
+        if (matrix[r] !== undefined) {
+          currentMatrix[r][c] = matrix[r][c] ?? 0;
+        } else {
+          currentMatrix[r][c] = 0;
+        }
+      }
+    }
+    console.log("Current matrix");
+    console.log(currentMatrix);
+    setMatrix(currentMatrix);
+  }, [matrixSize]);
 
   return (
     <form className="form-input">

@@ -4,57 +4,7 @@ import "./hero.css";
 import MatrixPrompt from "./MatrixPrompt/MatrixPrompt";
 import MatrixResult from "./MatrixResult/MatrixResult";
 import Navbar from "../Navbar/Navbar";
-
-export const OPERATION_LIST = [
-  {
-    id: "add",
-    title: "Addition",
-    requiresTwoMatrices: true,
-    requiresConstant: false,
-  },
-  {
-    id: "subtract",
-    title: "Subtraction",
-    requiresTwoMatrices: true,
-    requiresConstant: false,
-  },
-  {
-    id: "multiplication",
-    title: "Multiplication",
-    requiresTwoMatrices: true,
-    requiresConstant: false,
-  },
-  {
-    id: "k-multiplication",
-    title: "K-Multiplication",
-    requiresTwoMatrices: false,
-    requiresConstant: true,
-  },
-  {
-    id: "transpose",
-    title: "Transpose",
-    requiresTwoMatrices: false,
-    requiresConstant: false,
-  },
-  {
-    id: "determinant",
-    title: "Determinant",
-    requiresTwoMatrices: false,
-    requiresConstant: false,
-  },
-  {
-    id: "cramers",
-    title: "Cramer's Rule",
-    requiresTwoMatrices: false,
-    requiresConstant: false,
-  },
-  {
-    id: "ref-rref",
-    title: "REF/RREF",
-    requiresTwoMatrices: false,
-    requiresConstant: false,
-  },
-];
+import { OPERATION_LIST } from "../../utils/matrixCalculations";
 
 export default function Hero() {
   const [operation, setOperation] = useState(OPERATION_LIST[4]);
