@@ -45,6 +45,7 @@ export default function MatrixPrompt({
             setMatrix={(matrix) => setMatrix(matrix)}
           ></MatrixInputSize>
           <MatrixInput
+            matrix={matrix}
             matrixSize={matrixSize}
             setMatrix={(matrix) => setMatrix(matrix)}
           ></MatrixInput>
@@ -56,6 +57,7 @@ export default function MatrixPrompt({
               setMatrix={(matrix) => setSecondMatrix(matrix)}
             ></MatrixInputSize>
             <MatrixInput
+              matrix={secondMatrix}
               matrixSize={secondMatrixSize}
               setMatrix={(matrix) => setSecondMatrix(matrix)}
             ></MatrixInput>
