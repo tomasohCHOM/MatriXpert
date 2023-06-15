@@ -1,57 +1,7 @@
-export const OPERATION_LIST = [
-  {
-    id: "add",
-    title: "Addition",
-    requiresTwoMatrices: true,
-    requiresConstant: false,
-  },
-  {
-    id: "subtract",
-    title: "Subtraction",
-    requiresTwoMatrices: true,
-    requiresConstant: false,
-  },
-  {
-    id: "multiplication",
-    title: "Multiplication",
-    requiresTwoMatrices: true,
-    requiresConstant: false,
-  },
-  {
-    id: "k-multiplication",
-    title: "K-Multiplication",
-    requiresTwoMatrices: false,
-    requiresConstant: true,
-  },
-  {
-    id: "transpose",
-    title: "Transpose",
-    requiresTwoMatrices: false,
-    requiresConstant: false,
-  },
-  {
-    id: "determinant",
-    title: "Determinant",
-    requiresTwoMatrices: false,
-    requiresConstant: false,
-  },
-  {
-    id: "cramers",
-    title: "Cramer's Rule",
-    requiresTwoMatrices: false,
-    requiresConstant: false,
-  },
-  {
-    id: "ref-rref",
-    title: "REF/RREF",
-    requiresTwoMatrices: false,
-    requiresConstant: false,
-  },
-];
-
 export default class MatrixCalculations {
   static addMatrices = (a, b) => {
     let result = [];
+    // Add each Matrix A (i, j) entry with its correspondant (i, j) entry in Matrix B
     for (let r = 0; r < a.length; r++) {
       result[r] = [];
       for (let c = 0; c < a[0].length; c++) {
@@ -63,6 +13,7 @@ export default class MatrixCalculations {
 
   static subtractMatrices = (a, b) => {
     let result = [];
+    // Subtract each Matrix A (i, j) entry with its correspondant (i, j) entry in Matrix B
     for (let r = 0; r < a.length; r++) {
       result[r] = [];
       for (let c = 0; c < a[0].length; c++) {
@@ -91,6 +42,18 @@ export default class MatrixCalculations {
     }
     return result;
   };
+
+  static kMultiplication = (a, k) => {
+    let result = [];
+    // Multiply each entry in the Matrix with constant k.
+    for (let r = 0; r < a.length; r++) {
+      result[r] = [];
+      for (let c = 0; c < a[0].length; c++) {
+        result[r].push(a[r][c] * k);
+      }
+    }
+    return result;
+  }
 
   static transpose = (a) => {
     // If the input Matrix is empty, we don't need to do anything, just return a default-constructed Matrix.
@@ -218,3 +181,62 @@ export default class MatrixCalculations {
     return result;
   };
 }
+
+export const OPERATION_LIST = [
+  {
+    id: "add",
+    title: "Addition",
+    requiresTwoMatrices: true,
+    requiresConstant: false,
+    computeCalculation: MatrixCalculations.addMatrices
+  },
+  {
+    id: "subtract",
+    title: "Subtraction",
+    requiresTwoMatrices: true,
+    requiresConstant: false,
+    computeCalculation: MatrixCalculations.subtractMatrices
+  },
+  {
+    id: "multiplication",
+    title: "Multiplication",
+    requiresTwoMatrices: true,
+    requiresConstant: false,
+    computeCalculation: MatrixCalculations.multiplyMatrices
+  },
+  {
+    id: "k-multiplication",
+    title: "K-Multiplication",
+    requiresTwoMatrices: false,
+    requiresConstant: true,
+    computeCalculation: MatrixCalculations.kMultiplication
+  },
+  {
+    id: "transpose",
+    title: "Transpose",
+    requiresTwoMatrices: false,
+    requiresConstant: false,
+    computeCalculation: MatrixCalculations.transpose
+  },
+  {
+    id: "determinant",
+    title: "Determinant",
+    requiresTwoMatrices: false,
+    requiresConstant: false,
+    computeCalculation: MatrixCalculations.determinant
+  },
+  {
+    id: "cramers",
+    title: "Cramer's Rule",
+    requiresTwoMatrices: false,
+    requiresConstant: false,
+    computeCalculation: MatrixCalculations.cramersRule
+  },
+  {
+    id: "ref-rref",
+    title: "REF/RREF",
+    requiresTwoMatrices: false,
+    requiresConstant: false,
+    computeCalculation: MatrixCalculations.rref
+  },
+];
