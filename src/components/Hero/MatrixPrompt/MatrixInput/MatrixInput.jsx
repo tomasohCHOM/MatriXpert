@@ -3,10 +3,15 @@ import "./input.css";
 
 export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
   let currentMatrix = Array(matrixSize.rows);
+  console.log(matrix);
   for (let r = 0; r < matrixSize.rows; r++) {
     currentMatrix[r] = [];
     for (let c = 0; c < matrixSize.columns; c++) {
-      currentMatrix[r][c] = matrix[r][c] !== undefined ? matrix[r][c] : 0;
+      if (matrix[r] !== undefined) {
+        currentMatrix[r][c] = matrix[r][c] ?? 0;
+      } else {
+        currentMatrix[r][c] = 0;
+      }
     }
   }
 
