@@ -16,6 +16,7 @@ export default function MatrixPrompt({
   constant,
   setConstant,
   operation,
+  setResult
 }) {
   const handleChange = e => {
     setConstant(e.target.value);
@@ -26,6 +27,9 @@ export default function MatrixPrompt({
     console.log(secondMatrix);
     // console.log(constant);
     // console.log(operation);
+    if (operation.requiresTwoMatrices) {
+      setResult(MatrixCalculations.addMatrices(matrix, secondMatrix));
+    }
   }
 
   return (

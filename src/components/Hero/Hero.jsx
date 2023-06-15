@@ -97,6 +97,7 @@ export default function Hero() {
             constant={constant}
             setConstant={(object) => setConstant(object)}
             operation={operation}
+            setResult={(object) => setResult(object)}
           ></MatrixPrompt>
 
           <MatrixResult
@@ -104,7 +105,6 @@ export default function Hero() {
             secondMatrix={secondMatrix}
             operation={operation}
             result={result}
-            setResult={(object) => setResult(object)}
           ></MatrixResult>
         </main>
       </main>
