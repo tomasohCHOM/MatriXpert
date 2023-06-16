@@ -17,17 +17,17 @@ const renderLatexMatrix = (result) => {
 };
 
 export default function MatrixResult({ result }) {
-  const [latexMatrix, setLatexMatrix] = useState(
+  const [latexResult, setLatexResult] = useState(
     "\\begin{pmatrix}\n 0 & 0\\\\\n 0 & 0\n \\end{pmatrix}"
   );
 
   useEffect(() => {
-    setLatexMatrix(renderLatexMatrix(result));
+    Array.isArray(result) ? setLatexResult(renderLatexMatrix(result)) : setLatexResult(result.toString());
   }, [result]);
   return (
     <>
       <h2 className="sub-header">Result:</h2>
-      <BlockMath math={latexMatrix} />
+      <BlockMath math={latexResult} />
     </>
   );
 }

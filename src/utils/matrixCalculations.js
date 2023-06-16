@@ -36,7 +36,7 @@ export default class MatrixCalculations {
     const commonExtent = a[0].length;
     for (let r = 0; r < a.length; r++) {
       result[r] = [];
-      for (let c = 0; c < a[0].length; c++) {
+      for (let c = 0; c < b[0].length; c++) {
         result[r].push(this.multiplicationHelper(r, c, commonExtent, a, b));
       }
     }

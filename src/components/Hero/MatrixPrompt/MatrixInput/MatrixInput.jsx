@@ -24,25 +24,12 @@ export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
 
   const handleChange = (event) => {
     event.preventDefault();
-    // let count = 0;
-    // for (let r = 0; r < matrixSize.rows; r++) {
-    //   for (let c = 0; c < matrixSize.columns; c++) {
-    //     console.log(event.target[count]);
-    //     // If the floating point number cannot be parsed, we set 0 for this value
-    //     currentMatrix[r][c] = !isNaN(parseFloat(event.target?.value))
-    //       ? parseFloat(event.target.value)
-    //       : 0;
-    //     count += 1;
-    //   }
-    // }
-    console.log(event.target);
     // Destructure the array obtained from the name. For example, [0, 0] will be row = 0, col = 0.
     const [row, col] = event.target.name.split(",");
+    // Check whether the input entry was a number. If not, default to 0
     currentMatrix[row][col] = !isNaN(parseFloat(event.target.value))
       ? parseFloat(event.target.value)
       : 0;
-    console.log("Current matrix");
-    console.log(currentMatrix);
     setMatrix(currentMatrix);
   };
 
@@ -54,8 +41,6 @@ export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
       matrixSize.columns,
       matrix
     );
-    console.log("Current matrix");
-    console.log(currentMatrix);
     setMatrix(currentMatrix);
   }, [matrixSize]);
 
