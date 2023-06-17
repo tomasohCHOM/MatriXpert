@@ -230,6 +230,7 @@ export const OPERATION_LIST = [
     title: "Cramer's Rule",
     requiresTwoMatrices: false,
     requiresConstant: false,
+    // requiresConstantMatrix: true,
     computeCalculation: MatrixCalculations.cramersRule,
   },
   {

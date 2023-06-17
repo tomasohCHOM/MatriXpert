@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import MatrixInputSize from "./MatrixInput/MatrixInputSize";
 import MatrixInput from "./MatrixInput/MatrixInput";
 
@@ -13,12 +13,19 @@ export default function MatrixPrompt({
   setSecondMatrix,
   constant,
   setConstant,
+  constantMatrix,
+  setConstantMatrix,
   operation,
-  setResult
+  setResult,
 }) {
-  const handleConstantChange = e => {
-    setConstant(e.target.value);
-  }
+  const handleConstantChange = (event) => {
+    event.preventDefault();
+    setConstant(event.target.value);
+  };
+
+  const handleConstantMatrixChange = (event) => {
+
+  };
 
   const handleSubmit = () => {
     // console.log(matrix);
@@ -32,7 +39,15 @@ export default function MatrixPrompt({
     } else {
       setResult(operation.computeCalculation(matrix));
     }
-  }
+  };
+
+  useEffect(() => {
+    let constantB = [];
+    for (let r = 0; r < matrix.size; r++) {
+      constantB[r] = constantMatrix[r] ? constantMatrix[r] : 0;
+    }
+    setConstantMatrix(constantB);
+  }, [matrixSize]);
 
   return (
     <>
@@ -41,7 +56,12 @@ export default function MatrixPrompt({
           <div className="wrapper-column">
             <form>
               <label>Constant K:</label>
-              <input className="num-input" type="number" defaultValue={0} onChange={handleConstantChange} />
+              <input
+                className="num-input"
+                type="number"
+                defaultValue={0}
+                onChange={handleConstantChange}
+              />
             </form>
           </div>
         )}
@@ -69,8 +89,35 @@ export default function MatrixPrompt({
             ></MatrixInput>
           </div>
         )}
+        {operation.requiresConstantMatrix && (
+          <div className="wrapper-column">
+            <form>
+              <label>Constant Matrix B:</label>
+              {constantMatrix.map((row, indexRow = 1) => {
+                return (
+                  <input
+                    className="num-input matrix-entry"
+                    key={indexRow + " " + 0}
+                    type="text"
+                    defaultValue={0}
+                    name={indexRow + "," + 0}
+                    onChange={handleConstantMatrixChange}
+                  />
+                );
+              })}
+              <input
+                className="num-input"
+                type="number"
+                defaultValue={0}
+                onChange={handleConstantChange}
+              />
+            </form>
+          </div>
+        )}
       </div>
-      <button className="input-submit" onClick={handleSubmit}>Calculate!</button>
+      <button className="input-submit" onClick={handleSubmit}>
+        Calculate!
+      </button>
     </>
   );
 }

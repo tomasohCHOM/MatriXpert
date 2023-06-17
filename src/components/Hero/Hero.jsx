@@ -14,6 +14,7 @@ export default function Hero() {
     columns: 2,
   });
   const [constant, setConstant] = useState(0);
+  const [constantMatrix, setConstantMatrix] = useState([0, 0]);
   const [matrix, setMatrix] = useState([
     [0, 0],
     [0, 0],
@@ -50,6 +51,8 @@ export default function Hero() {
             setSecondMatrix={(object) => setSecondMatrix(object)}
             constant={constant}
             setConstant={(object) => setConstant(object)}
+            constantMatrix={constant}
+            setConstantMatrix={(object) => setConstantMatrix(object)}
             operation={operation}
             setResult={(object) => setResult(object)}
           ></MatrixPrompt>
