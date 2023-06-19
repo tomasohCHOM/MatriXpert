@@ -23,9 +23,7 @@ export default function MatrixPrompt({
     setConstant(event.target.value);
   };
 
-  const handleConstantMatrixChange = (event) => {
-
-  };
+  const handleConstantMatrixChange = (event) => {};
 
   const handleSubmit = () => {
     // console.log(matrix);
@@ -43,7 +41,7 @@ export default function MatrixPrompt({
 
   useEffect(() => {
     let constantB = [];
-    for (let r = 0; r < matrix.size; r++) {
+    for (let r = 0; r < matrixSize.rows; r++) {
       constantB[r] = constantMatrix[r] ? constantMatrix[r] : 0;
     }
     setConstantMatrix(constantB);
@@ -93,24 +91,22 @@ export default function MatrixPrompt({
           <div className="wrapper-column">
             <form>
               <label>Constant Matrix B:</label>
+              <br />
               {constantMatrix.map((row, indexRow = 1) => {
                 return (
-                  <input
-                    className="num-input matrix-entry"
-                    key={indexRow + " " + 0}
-                    type="text"
-                    defaultValue={0}
-                    name={indexRow + "," + 0}
-                    onChange={handleConstantMatrixChange}
-                  />
+                  <>
+                    <input
+                      className="num-input matrix-entry"
+                      key={indexRow + "   "}
+                      type="text"
+                      defaultValue={0}
+                      name={indexRow}
+                      onChange={handleConstantMatrixChange}
+                    />
+                    <br />
+                  </>
                 );
               })}
-              <input
-                className="num-input"
-                type="number"
-                defaultValue={0}
-                onChange={handleConstantChange}
-              />
             </form>
           </div>
         )}

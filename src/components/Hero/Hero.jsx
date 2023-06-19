@@ -51,7 +51,7 @@ export default function Hero() {
             setSecondMatrix={(object) => setSecondMatrix(object)}
             constant={constant}
             setConstant={(object) => setConstant(object)}
-            constantMatrix={constant}
+            constantMatrix={constantMatrix}
             setConstantMatrix={(object) => setConstantMatrix(object)}
             operation={operation}
             setResult={(object) => setResult(object)}
