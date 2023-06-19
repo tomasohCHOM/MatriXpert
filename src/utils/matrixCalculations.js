@@ -121,14 +121,14 @@ export default class MatrixCalculations {
 
   static cramersRule = (a, b) => {
     let result = new Array(3).fill(0);
-    let mainDeterminant = determinant(a);
+    let mainDeterminant = this.determinant(a);
 
     for (let c = 0; c < a.length; ++c) {
       let temp = new Array(a.length).fill().map(() => new Array());
       for (let r = 0; r < a.length; ++r) {
-        temp[r][c] = b[r][0];
+        temp[r][c] = b[r];
       }
-      result[c] = determinant(temp) / mainDeterminant;
+      result[c] = this.determinant(temp) / mainDeterminant;
     }
     return result;
   };
