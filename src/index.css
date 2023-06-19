@@ -27,3 +27,16 @@ body {
   font-family: inherit;
   overflow-x: hidden;
 }
+
+.sub-header {
+  font-size: 1.75rem;
+  color: var(--dark-font-color);
+}
+
+.icon-images {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  filter: invert(26%) sepia(0%) saturate(32%) hue-rotate(251deg) brightness(99%) contrast(83%);
+  -webkit-filter: invert(26%) sepia(0%) saturate(32%) hue-rotate(251deg) brightness(99%) contrast(83%);
+}

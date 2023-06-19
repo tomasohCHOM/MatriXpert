@@ -8,10 +8,10 @@ export default function Header() {
   return (
     <header className="header">
       <a href="https://github.com/tomasohCHOM/MatriXpert">
-        <img src={githubLogo} alt="hamburger" className="header-images" />
+        <img src={githubLogo} alt="hamburger" className="icon-images" />
       </a>
       <h1 className="title">MatriXpert</h1>
-      <img src={help} alt="help" className="header-images" />
+      <img src={help} alt="help" className="icon-images" />
     </header>
   );
 }

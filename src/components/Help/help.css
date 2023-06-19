@@ -1,0 +1,14 @@
+.help-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  /* right: -30ch; */
+  width: 30ch;
+  height: 100%;
+  padding: 1rem;
+  background-color: white;
+  font-family: var(--font);
+  font-size: 1.25rem;
+  transition: right 0.2s ease;
+}
