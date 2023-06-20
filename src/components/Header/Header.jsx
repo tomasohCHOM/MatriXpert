@@ -4,14 +4,14 @@ import help from "../../assets/help.png";
 import hamburger from "../../assets/hamburger-menu-icon.png";
 import githubLogo from "../../assets/github-logo.png";
 
-export default function Header() {
+export default function Header({ toggleSidebar }) {
   return (
     <header className="header">
       <a href="https://github.com/tomasohCHOM/MatriXpert">
         <img src={githubLogo} alt="hamburger" className="icon-images" />
       </a>
       <h1 className="title">MatriXpert</h1>
-      <img src={help} alt="help" className="icon-images" />
+      <img src={help} alt="help" className="icon-images" onClick={toggleSidebar} />
     </header>
   );
 }

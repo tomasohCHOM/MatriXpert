@@ -4,7 +4,8 @@
   width: 80px;
   border: 2px solid rgb(147, 147, 147);
   border-radius: 7px;
-  outline-color: rgb(57, 57, 57);
+  /* outline-color: rgb(57, 57, 57); */
+  outline-color: var(--blue-primary);
 }
 
 .main-input-wrapper {

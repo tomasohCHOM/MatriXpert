@@ -3,6 +3,7 @@
 :root {
   --primary: #d81e5b;
   --white: #fbfbfb;
+  --blue-primary: #83a2c9;
   --background-linear-gradient: linear-gradient(
     to right,
     #fff5e8 0%,
