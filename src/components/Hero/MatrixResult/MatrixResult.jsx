@@ -16,13 +16,24 @@ const renderLatexMatrix = (result) => {
   );
 };
 
+const renderSolutions = (result) => {
+  return (
+    "" +
+    result.map((value, index = 1) => {
+      return `x${index} = ${value}\\\n`;
+    })
+  );
+};
+
 export default function MatrixResult({ result }) {
   const [latexResult, setLatexResult] = useState(
     "\\begin{pmatrix}\n 0 & 0\\\\\n 0 & 0\n \\end{pmatrix}"
   );
 
   useEffect(() => {
-    Array.isArray(result) ? setLatexResult(renderLatexMatrix(result)) : setLatexResult(result.toString());
+    Array.isArray(result)
+      ? (Array.isArray(result[0]) ? setLatexResult(renderLatexMatrix(result)) : setLatexResult(renderSolutions(result)))
+      : setLatexResult(result.toString());
   }, [result]);
   return (
     <>

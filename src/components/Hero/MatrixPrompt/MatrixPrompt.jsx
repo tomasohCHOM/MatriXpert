@@ -47,11 +47,10 @@ export default function MatrixPrompt({
       setResult(operation.computeCalculation(matrix, secondMatrix));
     } else if (operation.requiresConstant) {
       setResult(operation.computeCalculation(matrix, constant));
+    } else if (operation.requiresConstantMatrix) {
+        setResult(operation.computeCalculation(matrix, constantMatrix));
     } else {
       setResult(operation.computeCalculation(matrix));
-    }
-    if (operation.requiresConstantMatrix) {
-      setResult(operation.computeCalculation(matrix, constantMatrix));
     }
   };
 
@@ -62,7 +61,7 @@ export default function MatrixPrompt({
 
   return (
     <>
-      <div className="main-input-wrapper">
+      <main className="main-input-wrapper">
         {operation.requiresConstant && (
           <div className="wrapper-column">
             <form>
@@ -125,7 +124,7 @@ export default function MatrixPrompt({
             </form>
           </div>
         )}
-      </div>
+      </main>
       <button className="input-submit" onClick={handleSubmit}>
         Calculate!
       </button>

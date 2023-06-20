@@ -61,8 +61,8 @@ export default class MatrixCalculations {
     // Initialize the resultant Matrix's rows to the number of columns of the input Matrix.
     let result = new Array(a[0].length).fill(0).map(() => new Array());
 
-    for (let r = 0; r < a.length; ++r) {
-      for (let c = 0; c < a[0].length; ++c) {
+    for (let r = 0; r < a.length; r++) {
+      for (let c = 0; c < a[0].length; c++) {
         // If the input matrix has a i-j value, then the result Matrix should make it a j-i value
         // (where i is the row and j is the column).
         // Push back values using c (column) as our new row.
@@ -78,8 +78,8 @@ export default class MatrixCalculations {
       .map(() => new Array());
     let m = 0;
     // Loop through rows and columns.
-    for (let r = 0; r < dimensionSize; ++r) {
-      for (let c = 0; c < dimensionSize; ++c) {
+    for (let r = 0; r < dimensionSize; r++) {
+      for (let c = 0; c < dimensionSize; c++) {
         // If it happens to be the same row, break. If same column, continue to the next iteration.
         if (i === r) break;
         if (j === c) continue;
@@ -101,7 +101,7 @@ export default class MatrixCalculations {
     let determinantResult = 0.0;
     // Initialize the size of the input matrix once and use it everywhere.
     let dimensionSize = a.length;
-    for (let r = 0; r < dimensionSize; ++r) {
+    for (let r = 0; r < dimensionSize; r++) {
       // Initialize a sub-Matrix using the getSubMatrix function.
       let subMatrix = this.getSubMatrix(r, 0, dimensionSize, a);
       // Accumulate the determinant for Matrix a, making a recursive call passing that subMatrix.
@@ -123,9 +123,9 @@ export default class MatrixCalculations {
     let result = new Array(3).fill(0);
     let mainDeterminant = this.determinant(a);
 
-    for (let c = 0; c < a.length; ++c) {
+    for (let c = 0; c < a.length; c++) {
       let temp = new Array(a.length).fill().map(() => new Array());
-      for (let r = 0; r < a.length; ++r) {
+      for (let r = 0; r < a.length; r++) {
         temp[r][c] = b[r];
       }
       result[c] = this.determinant(temp) / mainDeterminant;
