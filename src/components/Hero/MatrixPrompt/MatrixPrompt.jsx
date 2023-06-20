@@ -2,6 +2,14 @@ import React, { useEffect } from "react";
 import MatrixInputSize from "./MatrixInput/MatrixInputSize";
 import MatrixInput from "./MatrixInput/MatrixInput";
 
+const getEntriesFromConstantMatrix = (rows, constantMatrix) => {
+  let constantB = [];
+  for (let r = 0; r < rows; r++) {
+    constantB[r] = constantMatrix[r] !== undefined ? constantMatrix[r] : 0;
+  }
+  return constantB;
+}
+
 export default function MatrixPrompt({
   matrixSize,
   setMatrixSize,
@@ -25,14 +33,13 @@ export default function MatrixPrompt({
 
   const handleConstantMatrixChange = (event) => {
     event.preventDefault();
-    let constantB = [];
-    // Destructure the array obtained from the name. For example, [0, 0] will be row = 0, col = 0.
+    let constantB = getEntriesFromConstantMatrix(matrixSize.rows, constantMatrix);
     const row = parseInt(event.target.name);
     // Check whether the input entry was a number. If not, default to 0
     constantB[row] = !isNaN(parseFloat(event.target.value))
       ? parseFloat(event.target.value)
       : 0;
-    setMatrix(constantB);
+    setConstantMatrix(constantB);
   };
 
   const handleSubmit = () => {
@@ -49,12 +56,8 @@ export default function MatrixPrompt({
   };
 
   useEffect(() => {
-    let constantB = [];
-    for (let r = 0; r < matrixSize.rows; r++) {
-      constantB[r] = constantMatrix[r] !== undefined ? constantMatrix[r] : 0;
-    }
+    let constantB = getEntriesFromConstantMatrix(matrixSize.rows, constantMatrix);
     setConstantMatrix(constantB);
-    console.log(constantMatrix);
   }, [matrixSize]);
 
   return (
