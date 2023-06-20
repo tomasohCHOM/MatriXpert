@@ -39,6 +39,7 @@ export default function Hero() {
 
         <main className="main-wrapper">
           <h2 className="sub-header">Matrix {operation.title}:</h2>
+          <div className="operation-note">{operation.note}</div>
 
           <MatrixPrompt
             matrixSize={matrixSize}
@@ -55,7 +56,11 @@ export default function Hero() {
             setConstantMatrix={(object) => setConstantMatrix(object)}
             operation={operation}
             setResult={(object) => setResult(object)}
+            errorMessage={errorMessage}
+            setErrorMessage={(object) => setErrorMessage(object)}
           ></MatrixPrompt>
+
+          <div className="error">{errorMessage}</div>
 
           <MatrixResult
             matrix={matrix}

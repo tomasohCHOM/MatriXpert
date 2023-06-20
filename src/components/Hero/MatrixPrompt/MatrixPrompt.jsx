@@ -8,7 +8,7 @@ const getEntriesFromConstantMatrix = (rows, constantMatrix) => {
     constantB[r] = constantMatrix[r] !== undefined ? constantMatrix[r] : 0;
   }
   return constantB;
-}
+};
 
 export default function MatrixPrompt({
   matrixSize,
@@ -25,6 +25,8 @@ export default function MatrixPrompt({
   setConstantMatrix,
   operation,
   setResult,
+  errorMessage,
+  setErrorMessage,
 }) {
   const handleConstantChange = (event) => {
     event.preventDefault();
@@ -33,7 +35,10 @@ export default function MatrixPrompt({
 
   const handleConstantMatrixChange = (event) => {
     event.preventDefault();
-    let constantB = getEntriesFromConstantMatrix(matrixSize.rows, constantMatrix);
+    let constantB = getEntriesFromConstantMatrix(
+      matrixSize.rows,
+      constantMatrix
+    );
     const row = parseInt(event.target.name);
     // Check whether the input entry was a number. If not, default to 0
     constantB[row] = !isNaN(parseFloat(event.target.value))
@@ -44,18 +49,39 @@ export default function MatrixPrompt({
 
   const handleSubmit = () => {
     if (operation.requiresTwoMatrices) {
-      setResult(operation.computeCalculation(matrix, secondMatrix));
+      const calculatedResult = operation.computeCalculation(
+        matrix,
+        secondMatrix
+      );
+      calculatedResult !== undefined
+        ? (setResult(calculatedResult), setErrorMessage(""))
+        : setErrorMessage(operation.errorMessage);
     } else if (operation.requiresConstant) {
-      setResult(operation.computeCalculation(matrix, constant));
+      const calculatedResult = operation.computeCalculation(matrix, constant);
+      calculatedResult !== undefined
+        ? (setResult(calculatedResult), setErrorMessage(""))
+        : setErrorMessage(operation.errorMessage);
     } else if (operation.requiresConstantMatrix) {
-        setResult(operation.computeCalculation(matrix, constantMatrix));
+      const calculatedResult = operation.computeCalculation(
+        matrix,
+        constantMatrix
+      );
+      calculatedResult !== undefined
+        ? (setResult(calculatedResult), setErrorMessage(""))
+        : setErrorMessage(operation.errorMessage);
     } else {
-      setResult(operation.computeCalculation(matrix));
+      const calculatedResult = operation.computeCalculation(matrix);
+      calculatedResult !== undefined
+        ? (setResult(calculatedResult), setErrorMessage(""))
+        : setErrorMessage(operation.errorMessage);
     }
   };
 
   useEffect(() => {
-    let constantB = getEntriesFromConstantMatrix(matrixSize.rows, constantMatrix);
+    let constantB = getEntriesFromConstantMatrix(
+      matrixSize.rows,
+      constantMatrix
+    );
     setConstantMatrix(constantB);
   }, [matrixSize]);
 

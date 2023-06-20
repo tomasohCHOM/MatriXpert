@@ -1,5 +1,7 @@
 export default class MatrixCalculations {
   static addMatrices = (a, b) => {
+    if (a.length !== b.length || a[0].length !== b[0].length) return;
+
     let result = [];
     // Add each Matrix A (i, j) entry with its correspondant (i, j) entry in Matrix B
     for (let r = 0; r < a.length; r++) {
@@ -12,6 +14,8 @@ export default class MatrixCalculations {
   };
 
   static subtractMatrices = (a, b) => {
+    if (a.length !== b.length || a[0].length !== b[0].length) return;
+
     let result = [];
     // Subtract each Matrix A (i, j) entry with its correspondant (i, j) entry in Matrix B
     for (let r = 0; r < a.length; r++) {
@@ -32,6 +36,8 @@ export default class MatrixCalculations {
   };
 
   static multiplyMatrices = (a, b) => {
+    if (a[0].length !== b.length) return;
+
     let result = [];
     const commonExtent = a[0].length;
     for (let r = 0; r < a.length; r++) {
@@ -113,13 +119,15 @@ export default class MatrixCalculations {
 
   static determinant = (a) => {
     // If it is NOT a square matrix, determinant cannot be calculated.
-    if (a.length === 0 || a.length != a[0].length) return -1;
+    if (a.length != a[0].length) return;
     // If only one entry, then we can just return the value of that entry.
     if (a.length == 1) return a[0][0];
     return this.determinantHelper(a);
   };
 
   static cramersRule = (a, b) => {
+    if (a.length != a[0].length || a.length !== b.length) return;
+
     let result = new Array(3).fill(0);
     let mainDeterminant = this.determinant(a);
 
@@ -187,40 +195,52 @@ export const OPERATION_LIST = [
     id: "add",
     title: "Addition",
     requiresTwoMatrices: true,
+    note: "Note: Both matrices must have the same dimensions for the calculation to work.",
+    errorMessage: "Error: The Matrices don't have equal dimensions.",
     computeCalculation: MatrixCalculations.addMatrices,
   },
   {
     id: "subtract",
     title: "Subtraction",
     requiresTwoMatrices: true,
+    note: "Note: Both matrices must have the same dimensions for the calculation to work.",
+    errorMessage: "Error: The Matrices don't have equal dimensions.",
     computeCalculation: MatrixCalculations.subtractMatrices,
   },
   {
     id: "multiplication",
     title: "Multiplication",
     requiresTwoMatrices: true,
+    note: "Note: The first matrix's number of columns MUST equal to the second matrix's number of rows.",
+    errorMessage: "Error: First matrix's number of columns must equal to second matrix's number of rows.",
     computeCalculation: MatrixCalculations.multiplyMatrices,
   },
   {
     id: "k-multiplication",
     title: "K-Multiplication",
     requiresConstant: true,
+    errorMessage: "",
     computeCalculation: MatrixCalculations.kMultiplication,
   },
   {
     id: "transpose",
     title: "Transpose",
+    errorMessage: "",
     computeCalculation: MatrixCalculations.transpose,
   },
   {
     id: "determinant",
     title: "Determinant",
+    note: "Note: The input matrix must be square (the number of rows is equal to the number of columns).",
+    errorMessage: "Error: The matrix isn't square.",
     computeCalculation: MatrixCalculations.determinant,
   },
   {
     id: "cramers",
     title: "Cramer's Rule",
     requiresConstantMatrix: true,
+    note: "Note: The input matrix must be square (the number of rows is equal to the number of columns).",
+    errorMessage: "Error: The matrix isn't square.",
     computeCalculation: MatrixCalculations.cramersRule,
   },
   {
