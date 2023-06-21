@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { OPERATION_LIST } from "../../utils/matrixCalculations";
 import "./navbar.css";
 
-export default function Navbar({ operation, setOperation }) {
+export default function Navbar({ operation, setOperation, setResult, setErrorMessage }) {
   const handleOperationSelected = (selectedOperation) => {
     setOperation(selectedOperation);
+    setErrorMessage("");
+    setResult("");
   };
 
   return (

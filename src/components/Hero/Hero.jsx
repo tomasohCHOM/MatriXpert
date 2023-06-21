@@ -35,6 +35,8 @@ export default function Hero() {
         <Navbar
           operation={operation}
           setOperation={(object) => setOperation(object)}
+          setResult={setResult}
+          setErrorMessage={setErrorMessage}
         />
 
         <main className="main-wrapper">
@@ -62,12 +64,14 @@ export default function Hero() {
 
           <div className="error">{errorMessage}</div>
 
-          <MatrixResult
-            matrix={matrix}
-            secondMatrix={secondMatrix}
-            operation={operation}
-            result={result}
-          ></MatrixResult>
+          {result !== "" && (
+            <MatrixResult
+              matrix={matrix}
+              secondMatrix={secondMatrix}
+              operation={operation}
+              result={result}
+            ></MatrixResult>
+          )}
         </main>
       </main>
     </>
