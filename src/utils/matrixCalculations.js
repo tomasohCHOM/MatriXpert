@@ -125,14 +125,23 @@ export default class MatrixCalculations {
     return this.determinantHelper(a);
   };
 
+  static deepCopyArray = (a) => {
+    let copiedArray = [];
+    for (let r = 0; r < a.length; r++) {
+      copiedArray[r] = a[r].slice();
+    }
+    return copiedArray;
+  }
+
   static cramersRule = (a, b) => {
     if (a.length != a[0].length || a.length !== b.length) return;
 
-    let result = new Array(3).fill(0);
+    let result = new Array(a.length).fill(0);
     let mainDeterminant = this.determinant(a);
 
     for (let c = 0; c < a.length; c++) {
-      let temp = new Array(a.length).fill().map(() => new Array());
+      // Create a copy of the original array, except replace the respective column with constant matrix b.
+      let temp = this.deepCopyArray(a);
       for (let r = 0; r < a.length; r++) {
         temp[r][c] = b[r];
       }
