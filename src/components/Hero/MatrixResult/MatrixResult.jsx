@@ -19,8 +19,9 @@ const renderLatexMatrix = (result) => {
 const renderSolutions = (result) => {
   return (
     "" +
-    result.map((value, index = 1) => {
-      return `x${index} = ${value}\\\n`;
+    result.map((value, index) => {
+      index++;
+      return `\\\\x_${index} = ${value}`;
     })
   );
 };
@@ -32,7 +33,9 @@ export default function MatrixResult({ result }) {
 
   useEffect(() => {
     Array.isArray(result)
-      ? (Array.isArray(result[0]) ? setLatexResult(renderLatexMatrix(result)) : setLatexResult(renderSolutions(result)))
+      ? Array.isArray(result[0])
+        ? setLatexResult(renderLatexMatrix(result))
+        : setLatexResult(renderSolutions(result))
       : setLatexResult(result.toString());
   }, [result]);
   return (

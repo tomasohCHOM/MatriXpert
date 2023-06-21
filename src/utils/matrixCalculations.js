@@ -125,7 +125,7 @@ export default class MatrixCalculations {
     return this.determinantHelper(a);
   };
 
-  static deepCopyArray = (a) => {
+  static deepCopyMatrix = (a) => {
     let copiedArray = [];
     for (let r = 0; r < a.length; r++) {
       copiedArray[r] = a[r].slice();
@@ -141,7 +141,7 @@ export default class MatrixCalculations {
 
     for (let c = 0; c < a.length; c++) {
       // Create a copy of the original array, except replace the respective column with constant matrix b.
-      let temp = this.deepCopyArray(a);
+      let temp = this.deepCopyMatrix(a);
       for (let r = 0; r < a.length; r++) {
         temp[r][c] = b[r];
       }
