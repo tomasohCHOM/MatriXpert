@@ -26,7 +26,7 @@ const renderSolutions = (result) => {
   );
 };
 
-export default function MatrixResult({ result }) {
+export default function MatrixResult({ result, explanation }) {
   const [latexResult, setLatexResult] = useState("");
 
   useEffect(() => {
@@ -40,6 +40,7 @@ export default function MatrixResult({ result }) {
     <>
       <h2 className="sub-header">Result:</h2>
       <BlockMath math={latexResult} />
+      <div>{explanation}</div>
     </>
   );
 }

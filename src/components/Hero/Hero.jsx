@@ -24,6 +24,7 @@ export default function Hero() {
     [0, 0],
   ]);
   const [result, setResult] = useState("");
+  const [explanation, setExplanation] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   return (
@@ -55,7 +56,7 @@ export default function Hero() {
             setConstantMatrix={(object) => setConstantMatrix(object)}
             operation={operation}
             setResult={(object) => setResult(object)}
-            errorMessage={errorMessage}
+            setExplanation={(object) => setExplanation(object)}
             setErrorMessage={(object) => setErrorMessage(object)}
           ></MatrixPrompt>
 
@@ -67,6 +68,7 @@ export default function Hero() {
               secondMatrix={secondMatrix}
               operation={operation}
               result={result}
+              explanation={explanation}
             ></MatrixResult>
           )}
         </main>

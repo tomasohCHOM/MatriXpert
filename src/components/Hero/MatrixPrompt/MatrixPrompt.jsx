@@ -25,7 +25,7 @@ export default function MatrixPrompt({
   setConstantMatrix,
   operation,
   setResult,
-  errorMessage,
+  setExplanation,
   setErrorMessage,
 }) {
   const handleConstantChange = (event) => {
@@ -48,32 +48,29 @@ export default function MatrixPrompt({
   };
 
   const handleSubmit = () => {
+    let calculatedResult;
+    // Execute when performing add, subtract, multiply.
     if (operation.requiresTwoMatrices) {
-      const calculatedResult = operation.computeCalculation(
-        matrix,
-        secondMatrix
-      );
-      calculatedResult !== undefined
-        ? (setResult(calculatedResult), setErrorMessage(""))
-        : setErrorMessage(operation.errorMessage);
+      calculatedResult = operation.computeCalculation(matrix, secondMatrix);
+      // Execute when performing k-multiplication.
     } else if (operation.requiresConstant) {
-      const calculatedResult = operation.computeCalculation(matrix, constant);
-      calculatedResult !== undefined
-        ? (setResult(calculatedResult), setErrorMessage(""))
-        : setErrorMessage(operation.errorMessage);
+      calculatedResult = operation.computeCalculation(matrix, constant);
+      // Execute when performing Cramer's Rule or Gaussian Elimination.
     } else if (operation.requiresConstantMatrix) {
-      const calculatedResult = operation.computeCalculation(
-        matrix,
-        constantMatrix
-      );
-      calculatedResult !== undefined
-        ? (setResult(calculatedResult), setErrorMessage(""))
-        : setErrorMessage(operation.errorMessage);
+      calculatedResult = operation.computeCalculation(matrix, constantMatrix);
+      // Execute when it is just a single matrix used (transpose, determinant, etc.)
     } else {
-      const calculatedResult = operation.computeCalculation(matrix);
-      calculatedResult !== undefined
-        ? (setResult(calculatedResult), setErrorMessage(""))
-        : setErrorMessage(operation.errorMessage);
+      calculatedResult = operation.computeCalculation(matrix);
+    }
+
+    // If the result was calculated correctly, update the result.
+    // Otherwise, display that an error occured doing the calculation.
+    if (calculatedResult !== undefined) {
+      setErrorMessage("");
+      setResult(calculatedResult.resultantMatrix);
+      setExplanation(calculatedResult.explanation);
+    } else {
+      setErrorMessage(operation.errorMessage);
     }
   };
 

@@ -2,28 +2,36 @@ export default class MatrixCalculations {
   static addMatrices = (a, b) => {
     if (a.length !== b.length || a[0].length !== b[0].length) return;
 
-    let result = [];
+    let result = {};
+    result.explanation =
+      "Add each number in the position of the fist matrix with the number in the same position of the second matrix.";
+    let resultantMatrix = [];
     // Add each Matrix A (i, j) entry with its correspondant (i, j) entry in Matrix B
     for (let r = 0; r < a.length; r++) {
-      result[r] = [];
+      resultantMatrix[r] = [];
       for (let c = 0; c < a[0].length; c++) {
-        result[r].push(a[r][c] + b[r][c]);
+        resultantMatrix[r].push(a[r][c] + b[r][c]);
       }
     }
+    result.resultantMatrix = resultantMatrix;
     return result;
   };
 
   static subtractMatrices = (a, b) => {
     if (a.length !== b.length || a[0].length !== b[0].length) return;
 
-    let result = [];
+    let result = {};
+    result.explanation =
+      "Subtract each number in the position of the fist matrix with the number in the same position of the second matrix.";
+    let resultantMatrix = [];
     // Subtract each Matrix A (i, j) entry with its correspondant (i, j) entry in Matrix B
     for (let r = 0; r < a.length; r++) {
-      result[r] = [];
+      resultantMatrix[r] = [];
       for (let c = 0; c < a[0].length; c++) {
-        result[r].push(a[r][c] - b[r][c]);
+        resultantMatrix[r].push(a[r][c] - b[r][c]);
       }
     }
+    result.resultantMatrix = resultantMatrix;
     return result;
   };
 
@@ -131,7 +139,7 @@ export default class MatrixCalculations {
       copiedArray[r] = a[r].slice();
     }
     return copiedArray;
-  }
+  };
 
   static cramersRule = (a, b) => {
     if (a.length != a[0].length || a.length !== b.length) return;
@@ -221,7 +229,8 @@ export const OPERATION_LIST = [
     title: "Multiplication",
     requiresTwoMatrices: true,
     note: "Note: The first matrix's number of columns MUST equal to the second matrix's number of rows.",
-    errorMessage: "Error: First matrix's number of columns must equal to second matrix's number of rows.",
+    errorMessage:
+      "Error: First matrix's number of columns must equal to second matrix's number of rows.",
     computeCalculation: MatrixCalculations.multiplyMatrices,
   },
   {
