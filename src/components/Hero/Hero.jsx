@@ -23,10 +23,7 @@ export default function Hero() {
     [0, 0],
     [0, 0],
   ]);
-  const [result, setResult] = useState([
-    [0, 0],
-    [0, 0],
-  ]);
+  const [result, setResult] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   return (

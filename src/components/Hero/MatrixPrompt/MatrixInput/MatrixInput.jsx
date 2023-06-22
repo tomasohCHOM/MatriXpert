@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import "./input.css";
 
 const getEntriesFromMatrix = (rows, columns, matrix) => {
@@ -58,6 +58,8 @@ export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
                   defaultValue={0}
                   name={indexRow + "," + indexColumn}
                   onChange={handleChange}
+                  // onFocus={() => alert("Yo, selected")}
+                  // onBlur={() => setCount(0)}
                 />
               );
             })}

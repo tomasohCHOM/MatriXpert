@@ -27,9 +27,7 @@ const renderSolutions = (result) => {
 };
 
 export default function MatrixResult({ result }) {
-  const [latexResult, setLatexResult] = useState(
-    "\\begin{pmatrix}\n 0 & 0\\\\\n 0 & 0\n \\end{pmatrix}"
-  );
+  const [latexResult, setLatexResult] = useState("");
 
   useEffect(() => {
     Array.isArray(result)
