@@ -46,19 +46,30 @@ export default class MatrixCalculations {
   static multiplyMatrices = (a, b) => {
     if (a[0].length !== b.length) return;
 
-    let result = [];
+    let result = {};
+    result.explanation =
+      "Perform the dot product between each row in the first matrix with each column in the second matrix.";
+    result.explanation +=
+      "The resultant matrix will have the number of rows of the first matrix and the number of columns in the second matrix.";
+    let resultantMatrix = [];
     const commonExtent = a[0].length;
     for (let r = 0; r < a.length; r++) {
-      result[r] = [];
+      resultantMatrix[r] = [];
       for (let c = 0; c < b[0].length; c++) {
-        result[r].push(this.multiplicationHelper(r, c, commonExtent, a, b));
+        resultantMatrix[r].push(
+          this.multiplicationHelper(r, c, commonExtent, a, b)
+        );
       }
     }
+    result.resultantMatrix = resultantMatrix;
     return result;
   };
 
   static kMultiplication = (a, k) => {
-    let result = [];
+    let result = {};
+    result.explanation =
+      "Multiply each entry in the matrix with the provided constant value to get the result.";
+    let resultantMatrix = [];
     // Multiply each entry in the Matrix with constant k.
     for (let r = 0; r < a.length; r++) {
       result[r] = [];
@@ -66,6 +77,7 @@ export default class MatrixCalculations {
         result[r].push(a[r][c] * k);
       }
     }
+    result.resultantMatrix = resultantMatrix;
     return result;
   };
 
@@ -73,16 +85,22 @@ export default class MatrixCalculations {
     // If the input Matrix is empty, we don't need to do anything, just return a default-constructed Matrix.
     if (a.length === 0) return;
     // Initialize the resultant Matrix's rows to the number of columns of the input Matrix.
-    let result = new Array(a[0].length).fill(0).map(() => new Array());
+    let result = {};
+    result.explanation =
+      "When performing matrix transpose, the i-row becomes the new i-column. In other words, the horizontal values";
+    result.explanation +=
+      " of the original matrix become the vertical values in the tranposed matrix (and viceversa).";
+    let resultantMatrix = new Array(a[0].length).fill(0).map(() => new Array());
 
     for (let r = 0; r < a.length; r++) {
       for (let c = 0; c < a[0].length; c++) {
         // If the input matrix has a i-j value, then the result Matrix should make it a j-i value
         // (where i is the row and j is the column).
         // Push back values using c (column) as our new row.
-        result[c].push(a[r][c]);
+        resultantMatrix[c].push(a[r][c]);
       }
     }
+    result.resultantMatrix = resultantMatrix;
     return result;
   };
 
