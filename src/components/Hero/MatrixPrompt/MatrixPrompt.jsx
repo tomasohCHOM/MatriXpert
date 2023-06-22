@@ -67,7 +67,7 @@ export default function MatrixPrompt({
     // Otherwise, display that an error occured doing the calculation.
     if (calculatedResult !== undefined) {
       setErrorMessage("");
-      setResult(calculatedResult.resultantMatrix);
+      setResult(calculatedResult.computation);
       setExplanation(calculatedResult.explanation);
     } else {
       setErrorMessage(operation.errorMessage);

@@ -13,7 +13,7 @@ export default class MatrixCalculations {
         resultantMatrix[r].push(a[r][c] + b[r][c]);
       }
     }
-    result.resultantMatrix = resultantMatrix;
+    result.computation = resultantMatrix;
     return result;
   };
 
@@ -31,7 +31,7 @@ export default class MatrixCalculations {
         resultantMatrix[r].push(a[r][c] - b[r][c]);
       }
     }
-    result.resultantMatrix = resultantMatrix;
+    result.computation = resultantMatrix;
     return result;
   };
 
@@ -61,7 +61,7 @@ export default class MatrixCalculations {
         );
       }
     }
-    result.resultantMatrix = resultantMatrix;
+    result.computation = resultantMatrix;
     return result;
   };
 
@@ -77,7 +77,7 @@ export default class MatrixCalculations {
         result[r].push(a[r][c] * k);
       }
     }
-    result.resultantMatrix = resultantMatrix;
+    result.computation = resultantMatrix;
     return result;
   };
 
@@ -100,7 +100,7 @@ export default class MatrixCalculations {
         resultantMatrix[c].push(a[r][c]);
       }
     }
-    result.resultantMatrix = resultantMatrix;
+    result.computation = resultantMatrix;
     return result;
   };
 
@@ -162,7 +162,9 @@ export default class MatrixCalculations {
   static cramersRule = (a, b) => {
     if (a.length != a[0].length || a.length !== b.length) return;
 
-    let result = new Array(a.length).fill(0);
+    let result = {};
+    result.explanation = "Perform determinant in each foobar aknkfskn";
+    let resultantArray = new Array(a.length).fill(0);
     let mainDeterminant = this.determinant(a);
 
     for (let c = 0; c < a.length; c++) {
@@ -171,13 +173,16 @@ export default class MatrixCalculations {
       for (let r = 0; r < a.length; r++) {
         temp[r][c] = b[r];
       }
-      result[c] = this.determinant(temp) / mainDeterminant;
+      resultantArray[c] = this.determinant(temp) / mainDeterminant;
     }
+    result.computation = resultantArray;
     return result;
   };
 
   static rref = (a) => {
-    let result = a.map((arr) => {
+    let result = {};
+    result.explanation = "";
+    let resultantMatrix = a.map((arr) => {
       return arr.slice();
     });
     let lead = 0; // The current leading column
