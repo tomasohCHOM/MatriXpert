@@ -168,7 +168,7 @@ export default class MatrixCalculations {
     let result = {};
     result.explanation = "Perform determinant in each foobar aknkfskn";
     let resultantArray = new Array(a.length).fill(0);
-    let mainDeterminant = this.determinant(a);
+    let mainDeterminant = this.determinant(a).computation;
 
     for (let c = 0; c < a.length; c++) {
       // Create a copy of the original array, except replace the respective column with constant matrix b.
@@ -176,7 +176,7 @@ export default class MatrixCalculations {
       for (let r = 0; r < a.length; r++) {
         temp[r][c] = b[r];
       }
-      resultantArray[c] = this.determinant(temp) / mainDeterminant;
+      resultantArray[c] = this.determinant(temp).computation / mainDeterminant;
     }
     result.computation = resultantArray;
     return result;
