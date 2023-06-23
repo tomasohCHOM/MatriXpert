@@ -72,9 +72,9 @@ export default class MatrixCalculations {
     let resultantMatrix = [];
     // Multiply each entry in the Matrix with constant k.
     for (let r = 0; r < a.length; r++) {
-      result[r] = [];
+      resultantMatrix[r] = [];
       for (let c = 0; c < a[0].length; c++) {
-        result[r].push(a[r][c] * k);
+        resultantMatrix[r].push(a[r][c] * k);
       }
     }
     result.computation = resultantMatrix;
@@ -148,7 +148,10 @@ export default class MatrixCalculations {
     if (a.length != a[0].length) return;
     // If only one entry, then we can just return the value of that entry.
     if (a.length == 1) return a[0][0];
-    return this.determinantHelper(a);
+    let result = {};
+    result.explanation = "Explanation for calculating Determinant.";
+    result.computation = this.determinantHelper(a);
+    return result;
   };
 
   static deepCopyMatrix = (a) => {
@@ -181,22 +184,20 @@ export default class MatrixCalculations {
 
   static rref = (a) => {
     let result = {};
-    result.explanation = "";
-    let resultantMatrix = a.map((arr) => {
-      return arr.slice();
-    });
+    result.explanation = "Explanations lol.";
+    let resultantMatrix = this.deepCopyMatrix(a);
     let lead = 0; // The current leading column
-    let rowCount = result.length; // The number of rows in the matrix
-    let colCount = result[0].length; // The number of columns in the matrix
+    let rowCount = resultantMatrix.length; // The number of rows in the matrix
+    let colCount = resultantMatrix[0].length; // The number of columns in the matrix
     for (let r = 0; r < rowCount; r++) {
       // For each row...
       if (colCount <= lead) {
         // If we've processed all columns, we're done
-        return result;
+        return resultantMatrix;
       }
       let i = r;
       // Search for a row with a non-zero entry in the current leading column
-      while (Math.abs(result[i][lead]) < 1e-10) {
+      while (Math.abs(resultantMatrix[i][lead]) < 1e-10) {
         i++;
         if (rowCount == i) {
           // If we've processed all rows, move to the next column
@@ -204,28 +205,33 @@ export default class MatrixCalculations {
           lead++;
           if (colCount == lead) {
             // If we've processed all columns, we're done
+            result.computation = resultantMatrix;
             return result;
           }
         }
       }
       // Swap the current row with the row we found
-      [result[i], result[r]] = [result[r], result[i]];
-      let lv = result[r][lead];
+      [resultantMatrix[i], resultantMatrix[r]] = [
+        resultantMatrix[r],
+        resultantMatrix[i],
+      ];
+      let lv = resultantMatrix[r][lead];
       // Divide the current row by its leading coefficient to make it a leading 1
       for (let j = 0; j < colCount; j++) {
-        result[r][j] /= lv;
+        resultantMatrix[r][j] /= lv;
       }
       // Subtract multiples of the current row from all other rows to make their leading coefficients zero
       for (let i = 0; i < rowCount; i++) {
         if (i != r) {
-          let lv = result[i][lead];
+          let lv = resultantMatrix[i][lead];
           for (let j = 0; j < colCount; j++) {
-            result[i][j] -= lv * result[r][j];
+            resultantMatrix[i][j] -= lv * resultantMatrix[r][j];
           }
         }
       }
       lead++; // Move to the next leading column
     }
+    result.computation = resultantMatrix;
     return result;
   };
 }
