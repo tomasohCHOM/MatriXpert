@@ -16,7 +16,6 @@ export default function MatriXpert() {
       <Header toggleSidebar={toggleSidebar}></Header>
       <Help
         isOpen={isOpen}
-        setIsOpen={setIsOpen}
         toggleSidebar={toggleSidebar}
       ></Help>
       <Hero></Hero>

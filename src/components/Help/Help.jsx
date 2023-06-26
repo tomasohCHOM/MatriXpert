@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import cross from "../../assets/cross.png";
 import "./help.css";
 
-export default function Help({ isOpen, setIsOpen, toggleSidebar }) {
+export default function Help({ isOpen, toggleSidebar }) {
   return (
     <>
       <nav className={`help-container ${isOpen === true ? "active" : ""}`}>
         <div className="help-header">
-          <h2 className="sub-header">About</h2>
+          <h2 className="sub-header help-sub-header">About</h2>
           <img
             src={cross}
             alt="exit"
