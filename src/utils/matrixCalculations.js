@@ -166,7 +166,11 @@ export default class MatrixCalculations {
     if (a.length != a[0].length || a.length !== b.length) return;
 
     let result = {};
-    result.explanation = "Perform determinant in each foobar aknkfskn";
+    result.explanation =
+      "To solve for each variable using Cramer's Rule, replace each variable column with the constant column. ";
+    result.explanation +=
+      "Then, calculate the determinant of the modified matrices and divide it by the main (coefficient) determinant";
+    result.explanation += " to get the variable's result.";
     let resultantArray = new Array(a.length).fill(0);
     let mainDeterminant = this.determinant(a).computation;
 
@@ -184,7 +188,21 @@ export default class MatrixCalculations {
 
   static rref = (a) => {
     let result = {};
-    result.explanation = "Explanations lol.";
+    result.explanation =
+      "A matrix in Reduced Echelon Form is one in which, after performing row operations,";
+    result.explanation +=
+      " 1. All nonzero rows are above any rows of all zeros.";
+    result.explanation +=
+      " 2. Each leading (nonzero) entry of a row is in a column to the right of the leading (nonzero) entry of the row above it.";
+    result.explanation +=
+      " 3. All entries in a column below a leading (nonzero) entry are zeros.";
+    result.explanation +=
+      " A matrix in Row-Reduced Echelon Form satisfies all the above conditions, but also ";
+    result.explanation +=
+      "1. All the leading (nonzero) entry in each row is 1.";
+    result.explanation +=
+      " 2. Each leading 1 is the only nonzero entry in its column.";
+
     let resultantMatrix = this.deepCopyMatrix(a);
     let lead = 0; // The current leading column
     let rowCount = resultantMatrix.length; // The number of rows in the matrix

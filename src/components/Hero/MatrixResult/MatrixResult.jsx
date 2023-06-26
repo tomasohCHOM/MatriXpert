@@ -21,6 +21,7 @@ const renderSolutions = (result) => {
     "" +
     result.map((value, index) => {
       index++;
+      if (index === 1) return `x_${index} = ${value}`;
       return `\\\\x_${index} = ${value}`;
     })
   );
