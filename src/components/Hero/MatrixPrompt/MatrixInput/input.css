@@ -1,7 +1,7 @@
 .num-input {
   margin: 1rem;
   padding: 0.5rem;
-  width: 80px;
+  width: 60px;
   border: 2px solid rgb(147, 147, 147);
   border-radius: 7px;
   /* outline-color: rgb(57, 57, 57); */
@@ -53,4 +53,28 @@
 .constant-matrix-label {
   display: inline-block;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 59.063rem) {
+  .main-input-wrapper {
+    flex-direction: column;
+  }
+  .constant-matrix-form {
+    margin: 2rem;
+  }
+}
+
+@media (max-width: 46.875rem) {
+  .main-input-wrapper {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 45.5rem) {
+  .main-input-wrapper {
+    flex-direction: column;
+  }
+  .constant-matrix-form {
+    margin: 2rem;
+  }
 }
