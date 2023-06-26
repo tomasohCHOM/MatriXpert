@@ -149,7 +149,10 @@ export default class MatrixCalculations {
     // If only one entry, then we can just return the value of that entry.
     if (a.length == 1) return a[0][0];
     let result = {};
-    result.explanation = "Explanation for calculating Determinant.";
+    result.explanation =
+      "To calculate the Determinant of a matrix, 1. Pick any row or column in the matrix. ";
+    result.explanation +=
+      "2. Multiply every element in that row or column by its cofactor and add.";
     result.computation = this.determinantHelper(a);
     return result;
   };
