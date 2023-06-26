@@ -26,13 +26,12 @@
   color: var(--primary);
 }
 
-@media (max-width: 50.625rem) {
-
-}
-
 @media (max-width: 46.875rem) {
   .main {
     flex-direction: column;
     row-gap: 2rem;
+  }
+  .main-wrapper {
+    padding: 3rem;
   }
 }

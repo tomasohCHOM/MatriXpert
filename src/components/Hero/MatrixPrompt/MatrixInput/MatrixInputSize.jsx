@@ -32,13 +32,13 @@ export default function MatrixInputSize({ setMatrixSize }) {
 
   return (
     <form>
-      <label>Matrix Size: </label>
+      <label className="size-label">Matrix Size: </label>
       <input
         name="rows-input"
         className="num-input"
         type="number"
         defaultValue={2}
-        min={1}
+        max={8}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
@@ -49,6 +49,7 @@ export default function MatrixInputSize({ setMatrixSize }) {
         type="number"
         defaultValue={2}
         min={1}
+        max={8}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />

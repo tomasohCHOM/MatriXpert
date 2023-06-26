@@ -78,3 +78,16 @@
     margin: 2rem;
   }
 }
+
+@media (max-width: 31.25rem) {
+  .num-input {
+    width: 40px;
+    margin: 1rem 0.25rem;
+  }
+  .matrix-entry {
+    margin: 0.25rem;
+  }
+  .size-label {
+    font-size: 0.875rem;
+  }
+}
