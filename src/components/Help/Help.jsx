@@ -16,21 +16,20 @@ export default function Help({ isOpen, toggleSidebar }) {
           />
         </div>
         <p className="help-contents">
-          MatriXpert is a free, open source Matrix calculator built in ReactJS.
-          It provides well layed-out solutions to many of the concepts that
-          students struggle with when encountering Linear Algebra for the first
-          time.
+          MatriXpert is a free, open-source Matrix calculator built in ReactJS.
+          MatriXpert provides solutions and explanations to many of the concepts
+          that students would encounter in a Linear Algebra class.
         </p>
         <h3 className="sub-header smaller-header">How to Use</h3>
         <p className="help-contents">
-          To use MatriXpert, simply choose the operation that you want to
-          perform by navigating through the list of available operations.
+          To use MatriXpert, simply choose the operation you want to perform by
+          navigating the list of available operations.
         </p>
         <p className="help-contents">
           Then input your matrix by filling in the forms (invalid inputs will
           automatically be evaluated to 0). Finally, press the "Calculate"
-          button to display the result of your chosen operation, along with some
-          further explanations as to how the result was calculated.
+          button to display your chosen operation's result. Further explanations
+          will also pop up to explain how the result is calculated.
         </p>
         <p className="help-contents">
           Experienced some bugs? You can{" "}
