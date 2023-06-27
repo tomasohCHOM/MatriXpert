@@ -19,3 +19,9 @@
   font-size: 1rem;
   color: var(--dark-font-color);
 }
+
+@media (max-width: 31.25rem) {
+  .title {
+    font-size: 2rem;
+  }
+}
