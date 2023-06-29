@@ -46,10 +46,10 @@ export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
 
   return (
     <form className="form-input">
-      {currentMatrix.map((row, indexRow = 1) => {
+      {currentMatrix.map((row, indexRow) => {
         return (
           <div key={indexRow}>
-            {row.map((item, indexColumn = 1) => {
+            {row.map((item, indexColumn) => {
               return (
                 <input
                   className="num-input matrix-entry"
@@ -58,8 +58,16 @@ export default function MatrixInput({ matrixSize, setMatrix, matrix }) {
                   defaultValue={0}
                   name={indexRow + "," + indexColumn}
                   onChange={handleChange}
-                  // onFocus={() => alert("Yo, selected")}
-                  // onBlur={() => setCount(0)}
+                  onFocus={(event) =>
+                    (event.target.value =
+                      event.target.value === "0" ? null : event.target.value)
+                  }
+                  onBlur={(event) =>
+                    (event.target.value =
+                      event.target.value == null || event.target.value === ""
+                        ? "0"
+                        : event.target.value)
+                  }
                 />
               );
             })}
