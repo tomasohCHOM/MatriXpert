@@ -1,19 +1,12 @@
 import React, { useState } from "react";
-import cross from "../../assets/cross.png";
 import "./help.css";
 
-export default function Help({ isOpen, toggleSidebar }) {
+export default function Help() {
   return (
     <>
-      <nav className={`help-container ${isOpen === true ? "active" : ""}`}>
+      <article className="help-container">
         <div className="help-header">
           <h2 className="sub-header help-sub-header">About</h2>
-          <img
-            src={cross}
-            alt="exit"
-            className="icon-images"
-            onClick={toggleSidebar}
-          />
         </div>
         <p className="help-contents">
           MatriXpert is a free, open-source Matrix calculator built in ReactJS.
@@ -38,11 +31,7 @@ export default function Help({ isOpen, toggleSidebar }) {
           </a>{" "}
           to report them. Thank you for using MatriXpert!
         </p>
-      </nav>
-      <div
-        className={`help-overlay ${isOpen == true ? "active" : ""}`}
-        onClick={toggleSidebar}
-      ></div>
+      </article>
     </>
   );
 }
