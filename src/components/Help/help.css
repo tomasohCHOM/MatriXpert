@@ -1,7 +1,8 @@
 .help-container {
   display: flex;
   flex-direction: column;
-  width: min(40em, 80vw);
+  align-items: center;
+  width: min(42em, 80vw);
   height: 100%;
   margin: 2rem auto;
   padding: 2rem;
@@ -15,34 +16,26 @@
 }
 
 .help-contents {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 
 .smaller-header {
   font-size: 1.5rem;
 }
 
-.help-container.active {
-  right: 0;
+.help-contents > strong {
+  color: var(--dark-font-color);
 }
 
-.help-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: 0.2s;
-  opacity: 0;
-  visibility: hidden;
+.primary-color {
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 5px;
+  padding-inline: 5px;
 }
 
-.help-overlay.active {
-  opacity: 1;
-  visibility: visible;
+.help-container > img {
+  height: 300px;
 }
 
 @media (max-width: 46.875rem) {
