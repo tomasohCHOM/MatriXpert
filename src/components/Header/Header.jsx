@@ -1,5 +1,5 @@
 import React from "react";
-import "./header.css";
+import "./header.scss";
 import help from "../../assets/help.png";
 import hamburger from "../../assets/hamburger-menu-icon.png";
 import githubLogo from "../../assets/github-logo.png";
@@ -15,11 +15,7 @@ export default function Header() {
         <h1 className="title">MatriXpert</h1>
       </Link>
       <Link to="/help">
-        <img
-          src={help}
-          alt="help"
-          className="icon-images"
-        />
+        <img src={help} alt="help" className="icon-images" />
       </Link>
     </header>
   );

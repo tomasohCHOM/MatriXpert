@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./help.css";
+import "./help.scss";
 
 export default function Help() {
   return (
@@ -31,7 +31,7 @@ export default function Help() {
         </p>
         <img
           src="src/assets/MatriXpert.png"
-          alt="Screenshot of MatriXpert's navbar"
+          alt="Screenshot of MatriXpert's homepage"
         ></img>
         <p className="help-contents">
           Experienced some bugs? You can{" "}
