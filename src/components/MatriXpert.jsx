@@ -1,5 +1,5 @@
 import React from "react";
-import "../index.scss";
+import "../index.css";
 import Hero from "./Hero/Hero.jsx";
 // import tester from "../utils/tester";
 
