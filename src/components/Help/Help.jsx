@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import matrixpertImage from "../../assets/matrixpert.png";
-import matrixpertNavbarImage from "../../assets/matrixpert-navbar.png";
+import matrixpertImage from "../../assets/MatriXpert.png";
+import matrixpertNavbarImage from "../../assets/MatriXpert-navbar.png";
 import "./help.scss";
 
 export default function Help() {
