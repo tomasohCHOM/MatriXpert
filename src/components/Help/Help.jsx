@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import matrixpertImage from "../../assets/matrixpert.png";
+import matrixpertNavbarImage from "../../assets/matrixpert-navbar.png";
 import "./help.scss";
 
 export default function Help() {
@@ -19,7 +21,7 @@ export default function Help() {
           navigating the list of available operations.
         </p>
         <img
-          src="src/assets/MatriXpert-navbar.png"
+          src={matrixpertNavbarImage}
           alt="Screenshot of MatriXpert's navbar"
         ></img>
         <p className="help-contents">
@@ -30,7 +32,7 @@ export default function Help() {
           to explain how the result is calculated.
         </p>
         <img
-          src="src/assets/MatriXpert.png"
+          src={matrixpertImage}
           alt="Screenshot of MatriXpert's homepage"
         ></img>
         <p className="help-contents">
