@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { OPERATION_LIST } from "../../utils/matrixCalculations";
-import "./navbar.css";
+import "./navbar.scss";
 
-export default function Navbar({ operation, setOperation, setResult, setErrorMessage }) {
+export default function Navbar({
+  operation,
+  setOperation,
+  setResult,
+  setErrorMessage,
+}) {
   const handleOperationSelected = (selectedOperation) => {
     setOperation(selectedOperation);
     setErrorMessage("");
@@ -17,7 +22,9 @@ export default function Navbar({ operation, setOperation, setResult, setErrorMes
             <li
               onClick={() => handleOperationSelected(selectedOperation)}
               key={selectedOperation.id}
-              className={selectedOperation.id === operation.id ? "selected" : ""}
+              className={
+                selectedOperation.id === operation.id ? "selected" : ""
+              }
             >
               {selectedOperation.title}
             </li>

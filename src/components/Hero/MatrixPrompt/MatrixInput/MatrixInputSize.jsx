@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./input.css";
+import "./input.scss";
 
 export default function MatrixInputSize({ setMatrixSize }) {
   const [cursor, setCursor] = useState(0);
@@ -28,7 +28,7 @@ export default function MatrixInputSize({ setMatrixSize }) {
       currentCursor = 1;
       setCursor(currentCursor);
     }
-  }
+  };
 
   return (
     <form>

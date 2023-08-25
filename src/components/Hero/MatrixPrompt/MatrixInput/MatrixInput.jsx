@@ -1,5 +1,5 @@
-import React, { useEffect, useReducer } from "react";
-import "./input.css";
+import React, { useEffect } from "react";
+import "./input.scss";
 
 const getEntriesFromMatrix = (rows, columns, matrix) => {
   let result = [];

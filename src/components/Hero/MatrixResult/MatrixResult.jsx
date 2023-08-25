@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "katex/dist/katex.min.css";
 import { BlockMath } from "react-katex";
-import "../hero.css";
 
 const renderLatexMatrix = (result) => {
   return (

@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin: 2em;
+
+  & .main-wrapper {
+    flex-basis: 75%;
+    padding: 1.25rem;
+    background-color: var(--white);
+    box-shadow: var(--standard-box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & .operation-note {
+      margin: 0.5rem;
+      text-align: center;
+    }
+
+    & .error {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+  }
+}
+
+@media (max-width: 46.875rem) {
+  .main {
+    flex-direction: column;
+    row-gap: 2rem;
+    & .main-wrapper {
+      padding: 3rem 1rem;
+    }
+  }
+}

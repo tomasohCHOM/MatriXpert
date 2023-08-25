@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./hero.css";
+import "./hero.scss";
 import MatrixPrompt from "./MatrixPrompt/MatrixPrompt";
 import MatrixResult from "./MatrixResult/MatrixResult";
 import Navbar from "../Navbar/Navbar";
