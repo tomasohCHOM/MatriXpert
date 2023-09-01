@@ -1,6 +1,11 @@
 import { test, expect } from "vitest";
 import MatrixCalculations from "./matrixCalculations";
-import { addMatricesExpectedResults } from "./expectedResults";
+import {
+  addMatricesExpectedResults,
+  subtractMatricesExpectedResults,
+  multiplyMatricesExpectedResults,
+  determinantExpectedResults,
+} from "./expectedResults";
 
 const firstMatrices = [
   [
@@ -43,69 +48,6 @@ const secondMatrices = [
   [[4], [9]],
 ];
 
-const subtractMatricesExpectedResults = [
-  [
-    [-1, -2],
-    [-1, 3],
-  ],
-  [
-    [29, -62],
-    [28, 2],
-  ],
-  [
-    [6.9, -1.0],
-    [7 / 5, -13.3],
-  ],
-  [
-    [5, 16, 5],
-    [-1, 4, 5],
-    [13, 14, 14],
-  ],
-  undefined,
-];
-
-const multiplyMatricesExpectedResults = [
-  [
-    [5, 8],
-    [11, 7],
-  ],
-  [
-    [39, 86],
-    [-18, -8],
-  ],
-  [
-    [683 / 20, 563 / 5],
-    [154 / 25, 103 / 20],
-  ],
-  [
-    [5, 16, 5],
-    [-1, 4, 5],
-    [13, 14, 14],
-  ],
-  undefined,
-];
-
-const determinantExpectedResults = [
-  [
-    [5, 8],
-    [11, 7],
-  ],
-  [
-    [39, 86],
-    [-18, -8],
-  ],
-  [
-    [13.1, 10.0],
-    [2.8, 12.3],
-  ],
-  [
-    [5, 16, 5],
-    [-1, 4, 5],
-    [13, 14, 14],
-  ],
-  undefined,
-];
-
 for (let i = 0; i < firstMatrices.length; i++) {
   test(`Testing Matrix Addition #${i + 1}`, () => {
     expect(
@@ -127,10 +69,8 @@ for (let i = 0; i < firstMatrices.length; i++) {
 for (let i = 0; i < firstMatrices.length; i++) {
   test(`Testing Matrix Multiplication #${i + 1}`, () => {
     expect(
-      MatrixCalculations.multiplyMatrices(
-        firstMatrices[i],
-        secondMatrices[i]
-      )?.computation.toFixed(1)
+      MatrixCalculations.multiplyMatrices(firstMatrices[i], secondMatrices[i])
+        ?.computation
     ).toStrictEqual(multiplyMatricesExpectedResults[i]);
   });
 }

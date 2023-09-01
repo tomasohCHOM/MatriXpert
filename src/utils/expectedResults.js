@@ -18,3 +18,47 @@ export const addMatricesExpectedResults = [
   ],
   undefined,
 ];
+
+export const subtractMatricesExpectedResults = [
+  [
+    [-1, -2],
+    [-1, 3],
+  ],
+  [
+    [29, -62],
+    [28, 2],
+  ],
+  [
+    [6.9, -1.0],
+    [7 / 5, -13.3],
+  ],
+  [
+    [-5, 2, 3],
+    [-9, -2, -1],
+    [-7, -4, -2],
+  ],
+  undefined,
+];
+
+export const multiplyMatricesExpectedResults = [
+  [
+    [24, 16],
+    [45, 35],
+  ],
+  [
+    [-106, 2456],
+    [94, 385],
+  ],
+  [
+    [683 / 20, 563 / 5],
+    [154 / 25, 103 / 20],
+  ],
+  [
+    [76, 63, 59],
+    [-1, -14, 14],
+    [95, 90, 66],
+  ],
+  [[22]],
+];
+
+export const determinantExpectedResults = [-5, -162, -14.45, 212, undefined];
