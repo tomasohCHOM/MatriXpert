@@ -1,4 +1,5 @@
 import { test, expect } from "vitest";
+import { Decimal } from "decimal.js";
 import MatrixCalculations from "./matrixCalculations";
 import {
   addMatricesExpectedResults,
@@ -82,3 +83,7 @@ for (let i = 0; i < firstMatrices.length; i++) {
     ).toStrictEqual(determinantExpectedResults[i]);
   });
 }
+
+test("Decimal JS Library", () => {
+  expect(new Decimal(0.1).plus(0.2)).toStrictEqual(new Decimal(0.3));
+});
