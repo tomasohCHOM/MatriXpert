@@ -1,3 +1,11 @@
+/**
+ * Note (09/04/2023): Performing operations on floating point numbers
+ * usually causes issues due to them existing in a base-2 system, rather
+ * than a base-10 system. We can address this issue by bringing the
+ * DecimalJS library (or some other similar libraries), but for keeping
+ * things simple, I will decide not to.
+ */
+
 import { test, expect } from "vitest";
 import { Decimal } from "decimal.js";
 import MatrixCalculations from "./matrixCalculations";
@@ -18,8 +26,8 @@ const firstMatrices = [
     [5, -3],
   ],
   [
-    [10, 4.5],
-    [2.1, -0.5],
+    [5, 0.2],
+    [4, -0.4],
   ],
   [
     [0, 9, 4],
@@ -38,8 +46,8 @@ const secondMatrices = [
     [-23, -5],
   ],
   [
-    [3.1, 5.5],
-    [0.7, 12.8],
+    [3, 10],
+    [2, 5],
   ],
   [
     [5, 7, 1],

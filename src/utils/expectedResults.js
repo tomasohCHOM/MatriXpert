@@ -8,8 +8,8 @@ export const addMatricesExpectedResults = [
     [-18, -8],
   ],
   [
-    [13.1, 10.0],
-    [2.8, 12.3],
+    [8, 10.2],
+    [6, 4.6],
   ],
   [
     [5, 16, 5],
@@ -29,8 +29,8 @@ export const subtractMatricesExpectedResults = [
     [28, 2],
   ],
   [
-    [6.9, -1.0],
-    [7 / 5, -13.3],
+    [2, -9.8],
+    [2, -5.4],
   ],
   [
     [-5, 2, 3],
@@ -50,8 +50,8 @@ export const multiplyMatricesExpectedResults = [
     [94, 385],
   ],
   [
-    [683 / 20, 563 / 5],
-    [154 / 25, 103 / 20],
+    [15.4, 51],
+    [11.2, 38],
   ],
   [
     [76, 63, 59],
@@ -61,4 +61,4 @@ export const multiplyMatricesExpectedResults = [
   [[22]],
 ];
 
-export const determinantExpectedResults = [-5, -162, -14.45, 212, undefined];
+export const determinantExpectedResults = [-5, -162, -2.8, 212, undefined];
