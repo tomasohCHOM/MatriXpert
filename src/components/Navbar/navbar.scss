@@ -37,6 +37,23 @@
   .navbar {
     & ul {
       font-size: 1rem;
+      columns: 3;
+    }
+  }
+}
+
+@media (max-width: 31.25rem) {
+  .navbar {
+    & ul {
+      columns: 2;
+    }
+  }
+}
+
+@media (max-width: 22rem) {
+  .navbar {
+    & ul {
+      columns: 1;
     }
   }
 }
